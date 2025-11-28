@@ -28,7 +28,7 @@ const componentProps = computed(() => {
 
 <style scoped>
 .deg-button {
-  height: 2rem;
+  height: 1.5rem;
   font-size: 1rem;
   margin: 0.25rem;
   border: 0.5px solid rgb(233, 218, 119);

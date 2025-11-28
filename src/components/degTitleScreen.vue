@@ -1,10 +1,19 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 import degInput from '../components/degInput.vue'
+import degDropdownMenu from '../components/degDropdownMenu.vue'
 
 const partySize = ref(0);
 const partyLevel = ref(0);
+const partySkill = ref('');
+
+const skillLevelList = ref([
+  { level: "Beginner", multiplier: 0.5 },
+  { level: "Advanced", multiplier: 1.0 },
+  { level: "Expert", multiplier: 1.5 },
+  { level: "Master", multiplier: 2.0 },
+]);
 
 const updatePartySize = (e) => {
   partySize.value = e;
@@ -12,6 +21,10 @@ const updatePartySize = (e) => {
 
 const updatePartyLevel = (e) => {
   partyLevel.value = e;
+}
+
+const updatePartySkill = (e) => {
+  partySkill.value = e;
 }
 
 const partySizeValidator = size => {
@@ -48,6 +61,14 @@ const partyLevelValidator = level => {
       :validator-callback="partyLevelValidator"
       @update:model-value="updatePartyLevel"
     />
+    <br>
+    <deg-dropdown-menu
+      v-model="partySkill"
+      label="Select Party Skill Level"
+      :list-items="skillLevelList"
+      @update:model-value="updatePartySkill"
+    />
+    
   </div>
 </template>
 

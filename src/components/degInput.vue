@@ -59,7 +59,7 @@ const onInput = () => {
     border: none;
     box-shadow: inset 0 0 0 0.5px rgb(233, 218, 119);
     border-radius: 6px;
-    height: 1.25rem;
+    height: 1.5rem;
     padding: 0.25rem;
   }
 }

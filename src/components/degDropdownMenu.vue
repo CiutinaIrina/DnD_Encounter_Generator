@@ -10,8 +10,8 @@ const emit = defineEmits(['update:modelValue'])
 
 const props = defineProps({
   modelValue: {
-    type: [String, Number],
-    default: '',
+    type: Object,
+    default: () => {},
   },
   label: {
     type: String,
@@ -29,12 +29,11 @@ const toggleDropdown = () => {
 
 const selectValue = (item) => {
   open.value = false
-  console.log(item);
   emit('update:modelValue', item)
 }
 
 const displayedLabel = computed(() => {
-  return props.modelValue || props.label;
+  return props.modelValue.level || props.label;
 })
 
 </script>
@@ -51,11 +50,11 @@ const displayedLabel = computed(() => {
     <div class="deg-dropdown-menu-spacer"></div>
     <div class="deg-dropdown-menu-list" v-if="open">
       <div
-        v-for="(item, index) in listItems"
-        :key="index"
+        v-for="item in listItems"
+        :key="item.level"
         @click="selectValue(item)"
       >
-        {{ item }}
+        {{ item.level }}
       </div>
     </div>
   </div>
@@ -63,7 +62,7 @@ const displayedLabel = computed(() => {
 
 <style scoped>
 .deg-dropdown-menu {
-  display: grid;
+  display: inline-grid;
   grid-template-columns: 1fr auto;
   grid-template-rows: auto auto;
   grid-template-areas: "label button"
@@ -76,6 +75,12 @@ const displayedLabel = computed(() => {
 
   .deg-dropdown-menu-button {
     grid-area: button;
+
+    .deg-icon-svg {
+      margin-left: 0.5rem;
+      transition: transform 0.25s ease;
+      transform: rotate(90deg);
+    }
   }
 
   .deg-dropdown-menu-spacer {
