@@ -14,7 +14,7 @@ const props = defineProps({
 })
 
 const svgHtml = computed(() =>
-  ICONS.ICON_SVGS[props.name]?.replace(/fill=['"][^'"]*['"]/g, "fill='currentColor'"),
+  ICONS.ICON_SVGS[props.name]?.replace(/fill=['"][^'"]*['"]/g, "fill='color'")
 )
 </script>
 

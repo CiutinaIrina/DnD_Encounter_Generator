@@ -20,6 +20,8 @@ import { RouterLink, RouterView } from 'vue-router'
 			<br>
 			<RouterLink class="router-link" to="/popup">Test Popup</RouterLink>
 			<br>
+			<RouterLink class="router-link" to="/dropdown-menu">Test Dropdown Menu</RouterLink>
+			<br>
 			<h3> Advanced Components </h3>
 			<RouterLink class="router-link" to="/compendium">Test Compendium</RouterLink>
 			<br>
@@ -68,7 +70,7 @@ h3 {
 			padding: 1rem;
 
 			.router-link {
-				color: antiquewhite;
+				color: rgb(233, 218, 119);
 				text-decoration: none;
 				font-size: 1.10rem;
 				padding: 0.5rem;

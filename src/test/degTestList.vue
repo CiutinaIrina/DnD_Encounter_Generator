@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 
 import degList from '../components/degList.vue'
 
@@ -13,6 +13,8 @@ const rows = ref([
 ])
 
 const columns = ref(["name", "type", "CR", "icon"]);
+
+const compendiumColumns = ref(["name", "type", "CR"]);
 
 </script>
 

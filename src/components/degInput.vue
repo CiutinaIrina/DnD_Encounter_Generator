@@ -32,7 +32,6 @@ const onInput = () => {
     
   }
 }
-
 </script>
 
 <template>
@@ -50,15 +49,15 @@ const onInput = () => {
 <style scoped>
 .deg-input {
   .deg-input-label {
-    color:whitesmoke;
+    color:rgb(233, 218, 119);
     margin-right: 0.25rem;
   }
 
   .deg-input-field {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(56, 110, 234, 0.3);
     outline: none;
     border: none;
-    box-shadow: inset 0 0 0 0.5px whitesmoke;
+    box-shadow: inset 0 0 0 0.5px rgb(233, 218, 119);
     border-radius: 6px;
     height: 1.25rem;
     padding: 0.25rem;

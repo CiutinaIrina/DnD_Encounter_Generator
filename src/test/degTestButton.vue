@@ -1,17 +1,23 @@
 <script setup>
 import degButton from '../components/degButton.vue'
+import ICONS from '@/common/icons.js'
 
 </script>
 
 <template>
   <div>
-    <deg-button text="Create Easy Encounter"/>
+    <deg-button label="Create Easy Encounter"/>
     <br>
-    <deg-button text="Create Medium Encounter"/>
+    <deg-button label="Create Medium Encounter"/>
     <br>
-    <deg-button text="Create Hard Encounter"/>
+    <deg-button label="Create Hard Encounter"/>
     <br>
-    <deg-button text="Create BOSS Encounter"/>
+    <deg-button label="Create BOSS Encounter"/>
+    <br>
+    <deg-button
+      label="Create BOSS Encounter"
+      :icon="ICONS.CHEVRON"
+    />
   </div>
 </template>
 

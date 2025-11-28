@@ -1,11 +1,16 @@
 <script setup>
 import { computed } from 'vue'
+import degIcon from '../components/degIcon.vue'
 
 const props = defineProps({
-	text: {
+	label: {
 		type: String,
 		required: true,
 	},
+  icon: {
+    type: String,
+    default: null,
+  },
 })
 
 const componentProps = computed(() => {
@@ -16,7 +21,8 @@ const componentProps = computed(() => {
 
 <template>
   <button class="deg-button">
-      {{ componentProps.text }}
+      {{ componentProps.label }}
+      <deg-icon v-if="componentProps.icon" :name="componentProps.icon" />
   </button>
 </template>
 
@@ -25,16 +31,16 @@ const componentProps = computed(() => {
   height: 2rem;
   font-size: 1rem;
   margin: 0.25rem;
-  border: 0.5px solid rgba(245, 245, 245, 0.5);
+  border: 0.5px solid rgb(233, 218, 119);
   border-radius: 6px;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(56, 110, 234, 0.3);;
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(56, 110, 234, 0.2);;
   }
 
   &:active {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(56, 110, 234, 0.4);;
   }
 }
 </style>

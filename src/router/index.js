@@ -14,6 +14,7 @@ import degIconMenu from '../test/degTestIconMenu.vue'
 import degMonster from '../test/degTestMonster.vue'
 import degEncounter from '../test/degTestEncounter.vue'
 import degDungeon from '../test/degTestDungeon.vue'
+import degDropdownMenu from '../test/degTestDropdownMenu.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -35,6 +36,7 @@ const router = createRouter({
         { path: '/monster', component: degMonster },
         { path: '/encounter', component: degEncounter },
         { path: '/dungeon', component: degDungeon },
+        { path: '/dropdown-menu', component: degDropdownMenu },
       ]
     },
     { path: '/', component: MainPage },

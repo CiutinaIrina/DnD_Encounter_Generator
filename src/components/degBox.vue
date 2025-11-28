@@ -33,8 +33,8 @@ const boxStyling = computed(() => ({
 .deg-box {
   height: var(--height);
   width: var(--width);
-  border: 0.5px solid rgba(245, 245, 245, 0.5);
-  background-color: rgba(0, 0, 0, 0.3);
+  border: 0.5px solid rgb(233, 218, 119);
+  background-color: rgba(56, 110, 234, 0.3);
   padding: 0.25rem;
   border-radius: 6px;
 }
