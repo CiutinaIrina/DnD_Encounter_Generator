@@ -1,28 +1,38 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 import degList from '../components/degList.vue'
 
-const rows = ref([
-  {name: "Gnoll", type: "Humanoid", CR: 0.5, icon: "info"},
-  {name: "Ogre", type: "Humanoid", CR: 2, icon: "info"},
-  {name: "Knight", type: "Humanoid", CR: 3, icon: "info"},
-  {name: "Roper", type: "Abberation", CR: 3, icon: "info"},
-  {name: "Spider", type: "Beast", CR: 0.5, icon: "info"},
-  {name: "Your Mom", type: "Indescribable", CR: 666, icon: "info"},
-])
+const shortMonsterList = ref([]);
+const listIcons = ref(["info", "add"]);
+const columns = ref(["name", "size", "type", "alignment", "challenge_rating"]);
 
-const columns = ref(["name", "type", "CR", "icon"]);
 
-const compendiumColumns = ref(["name", "type", "CR"]);
+onMounted(async () => {
+  const response = await fetch('src/common/srdMonsters.json');
+  const data = await response.json();
+  shortMonsterList.value = data.slice(0, 14);
+
+  console.log(shortMonsterList.value);
+});
+
+const columnHeaderFormatter = (column) => {
+  if (column === "challenge_rating") {
+    return "CR";
+  };
+
+  return column.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+};
 
 </script>
 
 <template>
   <div>
     <deg-list
-      :rows="rows"
+      :rows="shortMonsterList"
       :columns="columns"
+      :icons="listIcons"
+      :column-header-formatter="columnHeaderFormatter"
     />
   </div>
 </template>

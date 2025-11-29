@@ -1,7 +1,8 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 
 import degIcon from '../components/degIcon.vue'
+
 
 const props = defineProps({
   rows: {
@@ -11,15 +12,19 @@ const props = defineProps({
   columns: {
     type: Array,
     required: true,
-  }
+  },
+  icons: {
+    type: Array,
+    default: () => [],
+  },
+  columnHeaderFormatter: {
+    type: Function,
+    default: () => {},
+  },
 })
 
-const hasIcon = computed(() => {
-  return props.columns.includes("icon");
-});
-
 const computedColumns = computed(() => {
-  return hasIcon.value ? props.columns.filter(column => column !== "icon") : props.columns;
+  return [...props.columns, ...props.icons];
 })
 
 </script>
@@ -30,10 +35,10 @@ const computedColumns = computed(() => {
       <thead>
         <tr>
           <th
-            v-for="column in columns"
+            v-for="column in computedColumns"
             :key="column"
           >
-            {{ column }}
+            {{ columnHeaderFormatter(column) }}
           </th>
         </tr>
       </thead>
@@ -43,13 +48,13 @@ const computedColumns = computed(() => {
           :key="row"
         >
           <td
-            v-for="column in computedColumns"
+            v-for="column in columns"
             :key="column"
           >
             {{ row[column] }}
           </td>
-          <td v-if="hasIcon">
-            <deg-icon :name="row.icon" />
+          <td v-for="icon in props.icons" :key="icon">
+            <deg-icon :name="icon" />
           </td>
         </tr>
       </tbody>
@@ -74,6 +79,14 @@ const computedColumns = computed(() => {
       font-weight: bold;
       border-bottom: 1px solid rgb(233, 218, 119);
 
+      &:first-child {
+        border-top-left-radius: 4px;
+      }
+
+      &:last-child {
+        border-top-right-radius: 4px;
+      }
+
       &:not(:last-child) {
         border-right: 1px solid rgb(233, 218, 119);
       }
@@ -87,11 +100,16 @@ const computedColumns = computed(() => {
       }
 
       &:nth-child(odd) {
-        background-color: rgba(56, 110, 234, 0.45);
+        background-color: rgba(56, 110, 234, 0.4);
       }
 
       &:hover {
-        background-color: rgba(46, 91, 194, 0.3);
+        background-color: rgba(56, 110, 234, 0.6);
+        cursor: pointer;
+      }
+
+      &:active {
+        background-color: rgba(56, 110, 234, 0.55);
         cursor: pointer;
       }
 
@@ -99,6 +117,16 @@ const computedColumns = computed(() => {
         td {
           border-bottom: 1px solid rgb(233, 218, 119);
         }
+      }
+    }
+
+    tr:last-child {
+      td:first-child {
+        border-bottom-left-radius: 4px;
+      }
+
+      td:last-child {
+        border-bottom-right-radius: 4px;
       }
     }
   

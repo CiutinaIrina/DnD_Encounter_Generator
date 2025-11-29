@@ -5,7 +5,7 @@ const INFO_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048
 const CANCEL_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048"><path d="M1115 1024l690 691-90 90-691-690-691 690-90-90 690-691-690-691 90-90 691 690 691-690 90 90-690 691z" fill="currentColor"/></svg>`;
 const FILTER_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048"><path d="M2048 128v219l-768 768v805H768v-805L0 347V128h2048zm-128 128H128v37l768 768v731h256v-731l768-768v-37z" fill="currentColor"/></svg>`;
 const CHEVRON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M4 6l4 4 4-4H4z"/></svg>`
-
+const ADD_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048"><path d="M1792 896v256H1344v448h-256v-448H640V896h448V448h256v448h448z" fill="currentColor"/></svg>`;
 
 const DELETE = "delete";
 const LOAD = "load";
@@ -14,8 +14,9 @@ const INFO = "info";
 const CANCEL = "cancel";
 const FILTER = "filter";
 const CHEVRON = "chevron";
+const ADD = "add";
 
-const ICON_LIST = [DELETE, LOAD, SAVE, INFO, CANCEL, FILTER, CHEVRON];
+const ICON_LIST = [DELETE, LOAD, SAVE, INFO, CANCEL, FILTER, CHEVRON, ADD];
 
 const ICON_SVGS = {
     [DELETE]: DELETE_SVG,
@@ -25,6 +26,7 @@ const ICON_SVGS = {
     [CANCEL]: CANCEL_SVG,
     [FILTER]: FILTER_SVG,
     [CHEVRON]: CHEVRON_SVG,
+    [ADD]: ADD_SVG,
 };
 
 export default {
@@ -35,6 +37,7 @@ export default {
     CANCEL,
     FILTER,
     CHEVRON,
+    ADD,
     
     ICON_LIST,
     ICON_SVGS,
