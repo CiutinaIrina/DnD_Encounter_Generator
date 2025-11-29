@@ -94,7 +94,6 @@ const displayedLabel = computed(() => {
   .deg-dropdown-menu-bottom-container {
     position: fixed;
     display: flex;
-    width: 100%;
 
     .deg-dropdown-menu-spacer {
       grid-area: spacer;
@@ -106,7 +105,7 @@ const displayedLabel = computed(() => {
       border: 0.5px solid rgb(233, 218, 119);
       border-radius: 6px;
       background-color: rgb(72, 98, 159);
-      margin: 0.5rem 0.25rem 0.25rem 0.25rem;
+      margin: 2rem 0.25rem 0.25rem 0.25rem;
       cursor: pointer;
       width: 8rem;
 
