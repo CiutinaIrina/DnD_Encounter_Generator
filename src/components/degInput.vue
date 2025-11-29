@@ -25,12 +25,7 @@ const componentProps = computed(() => {
 })
 
 const onInput = () => {
-  if (props.validatorCallback(inputValue.value)) {
-    emit("update:modelValue", inputValue.value);
-  } else {
-    inputValue.value = props.modelValue;
-    
-  }
+  emit("update:modelValue", inputValue.value);
 }
 </script>
 

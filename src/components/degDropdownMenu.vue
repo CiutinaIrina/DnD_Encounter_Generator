@@ -17,6 +17,10 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  placeholder: {
+    type: String,
+    default: 'Select...',
+  },
   listItems: {
     type: Array,
     default: () => [],
@@ -33,28 +37,30 @@ const selectValue = (item) => {
 }
 
 const displayedLabel = computed(() => {
-  return props.modelValue.level || props.label;
+  return props.modelValue?.level || props.placeholder
 })
 
 </script>
 
 <template>
   <div class="deg-dropdown-menu">
-    <label class="deg-dropdown-label">Party Skill: </label>
+    <label class="deg-dropdown-label"> {{ props.label }} </label>
     <deg-button
       :label="displayedLabel"
       :icon="ICONS.CHEVRON"
       @click="toggleDropdown"
       class="deg-dropdown-menu-button"
     />
-    <div class="deg-dropdown-menu-spacer"></div>
-    <div class="deg-dropdown-menu-list" v-if="open">
-      <div
-        v-for="item in listItems"
-        :key="item.level"
-        @click="selectValue(item)"
-      >
-        {{ item.level }}
+    <div class="deg-dropdown-menu-bottom-container">
+      <div class="deg-dropdown-menu-spacer"> {{ props.label }} </div>
+      <div class="deg-dropdown-menu-list" v-if="open">
+        <div
+          v-for="item in listItems"
+          :key="item.level"
+          @click="selectValue(item)"
+        >
+          {{ item.level }}
+        </div>
       </div>
     </div>
   </div>
@@ -75,6 +81,8 @@ const displayedLabel = computed(() => {
 
   .deg-dropdown-menu-button {
     grid-area: button;
+    text-align-last: justify;
+    width: 8rem;
 
     .deg-icon-svg {
       margin-left: 0.5rem;
@@ -83,44 +91,51 @@ const displayedLabel = computed(() => {
     }
   }
 
-  .deg-dropdown-menu-spacer {
-    grid-area: spacer;
-    height: 0.25rem;
-  }
+  .deg-dropdown-menu-bottom-container {
+    position: fixed;
+    display: flex;
+    width: 100%;
 
-  .deg-dropdown-menu-list {
-    grid-area: list;
-    border: 0.5px solid rgb(233, 218, 119);
-    border-radius: 6px;
-    background-color: rgba(56, 110, 234, 0.3);
-    margin: 0rem 0.25rem 0.35rem 0.25rem;
+    .deg-dropdown-menu-spacer {
+      grid-area: spacer;
+      visibility: hidden;
+    }
 
-    div {
-      padding: 0.2rem;
-      &:hover {
-        background-color: rgba(56, 110, 234, 0.2);
+    .deg-dropdown-menu-list {
+      grid-area: list;
+      border: 0.5px solid rgb(233, 218, 119);
+      border-radius: 6px;
+      background-color: rgb(72, 98, 159);
+      margin: 0.5rem 0.25rem 0.25rem 0.25rem;
+      cursor: pointer;
+      width: 8rem;
 
-        &:first-child {
-          border-top-left-radius: 6px;
-          border-top-right-radius: 6px;
+      div {
+        padding: 0.2rem;
+        &:hover {
+          background-color: rgb(79, 103, 159);
+
+          &:first-child {
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+          }
+          &:last-child {
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+          }
         }
-        &:last-child {
-          border-bottom-left-radius: 6px;
-          border-bottom-right-radius: 6px;
-        }
+        &:active {
+          background-color: rgb(62, 91, 159);
 
-      }
-      &:active {
-        background-color: rgba(56, 110, 234, 0.4);
+          &:first-child {
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+          }
 
-        &:first-child {
-          border-top-left-radius: 6px;
-          border-top-right-radius: 6px;
-        }
-
-        &:last-child {
-          border-bottom-left-radius: 6px;
-          border-bottom-right-radius: 6px;
+          &:last-child {
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+          }
         }
       }
     }

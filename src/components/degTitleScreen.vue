@@ -3,16 +3,17 @@ import { ref, computed } from 'vue'
 
 import degInput from '../components/degInput.vue'
 import degDropdownMenu from '../components/degDropdownMenu.vue'
+import XP from '@/common/xp.js'
 
-const partySize = ref(0);
-const partyLevel = ref(0);
-const partySkill = ref('');
+const partySize = ref(4);
+const partyLevel = ref(1);
+const partySkill = ref({ level: "Advanced", multiplier: 1.0 });
 
 const skillLevelList = ref([
-  { level: "Beginner", multiplier: 0.5 },
-  { level: "Advanced", multiplier: 1.0 },
+  { level: "Beginner", multiplier: 0.75 },
+  { level: "Average", multiplier: 1.0 },
+  { level: "Advanced", multiplier: 1.25 },
   { level: "Expert", multiplier: 1.5 },
-  { level: "Master", multiplier: 2.0 },
 ]);
 
 const updatePartySize = (e) => {
@@ -27,20 +28,24 @@ const updatePartySkill = (e) => {
   partySkill.value = e;
 }
 
-const partySizeValidator = size => {
-  if (!Number.isInteger(Number(size))) return false;
+// const partySizeValidator = size => {
+//   if (!Number.isInteger(Number(size))) return false;
 
-  if (size < 3) return false;
-  else if (size > 6) return false;
-  else return true;
-}
+//   if (size < 3) return false;
+//   else if (size > 6) return false;
+//   else return true;
+// }
 
-const partyLevelValidator = level => {
-  if (!Number.isInteger(Number(level))) return false;
+// const partyLevelValidator = level => {
+//   if (!Number.isInteger(Number(level))) return false;
 
-  if (level > 20 || level < 1) return false;
-  else return true;
-}
+//   if (level > 20 || level < 1) return false;
+//   else return true;
+// }
+
+const partyXpPerDay = computed(() => {
+  return XP.XP_PER_LEVEL[partyLevel.value]?.daily * partySize.value * partyLevel.value * partySkill.value?.multiplier;
+})
 
 </script>
 
@@ -51,24 +56,24 @@ const partyLevelValidator = level => {
     <deg-input
       v-model="partySize"
       label="Party Size :"
-      :validator-callback="partySizeValidator"
       @update:model-value="updatePartySize"
     />
     <br>
     <deg-input
       v-model="partyLevel"
       label="Party Level :"
-      :validator-callback="partyLevelValidator"
       @update:model-value="updatePartyLevel"
     />
     <br>
     <deg-dropdown-menu
       v-model="partySkill"
-      label="Select Party Skill Level"
+      label="Party Skill :"
+      placeholder="Select Skill"
       :list-items="skillLevelList"
       @update:model-value="updatePartySkill"
     />
-    
+    <br>
+    <p> A party of {{ partySize }} Level {{ partyLevel }} {{ partySkill?.level }} advenurers can handle {{ partyXpPerDay }} XP points per day.</p>
   </div>
 </template>
 
