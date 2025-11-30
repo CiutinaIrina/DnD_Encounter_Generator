@@ -1,8 +1,9 @@
 <script setup>
-import { computed, ref, onMounted } from 'vue'
+import { computed, ref } from 'vue'
 
 import degIcon from '../components/degIcon.vue'
 
+const pageNumber = ref(1);
 
 const props = defineProps({
   rows: {
@@ -21,16 +22,75 @@ const props = defineProps({
     type: Function,
     default: () => {},
   },
+  hasPagination: {
+    type: Boolean,
+    default: false,
+  },
+  numbersPerPage: {
+    type: Number,
+    default: 10,
+  },
 })
 
 const computedColumns = computed(() => {
   return [...props.columns, ...props.icons];
-})
+});
+
+const totalPages = computed(() => {
+  return Math.ceil(props.rows.length / props.numbersPerPage);
+});
+
+const pageArray = computed(() => {
+  return Array.from({ length: totalPages.value }, (_, i) => i + 1);
+});
+
+const getPageRows = computed(() => {
+  const startIndex = (pageNumber.value - 1) * props.numbersPerPage;
+  const endIndex = startIndex + props.numbersPerPage;
+  return props.rows.slice(startIndex, endIndex);
+});
+
+const hasFirstPageIcon = computed(() => {
+  return pageNumber.value > 2;
+});
+
+const hasPrevPageIcon = computed(() => {
+  return pageNumber.value > 1;
+});
+
+const hasNextPageIcon = computed(() => {
+  return pageNumber.value < totalPages.value;
+});
+
+const hasLastPageIcon = computed(() => {
+  return pageNumber.value < totalPages.value - 1;
+});
+
+const updatePage = (page) => {
+  pageNumber.value = page;
+};
+
+const firstPage = () => {
+  updatePage(1);
+};
+
+const prevPage = () => {
+  updatePage(pageNumber.value - 1);
+};
+
+const nextPage = () => {
+  updatePage(pageNumber.value + 1);
+};
+
+const lastPage = () => {
+  updatePage(totalPages.value);
+};
+
 
 </script>
 
 <template>
-  <div>
+  <div class="deg-list">
     <table class="deg-list-table">
       <thead>
         <tr>
@@ -44,7 +104,7 @@ const computedColumns = computed(() => {
       </thead>
       <tbody>
         <tr
-          v-for="row in rows"
+          v-for="row in getPageRows"
           :key="row"
         >
           <td
@@ -59,87 +119,150 @@ const computedColumns = computed(() => {
         </tr>
       </tbody>
     </table>
+    <div
+      v-if="hasPagination"
+      class="deg-list-pagination"
+    >
+      <deg-icon
+        v-if="hasFirstPageIcon"
+        name="first_page"
+        @click="firstPage()"
+      />
+      <deg-icon
+        v-if="hasPrevPageIcon"
+        name="prev_page"
+        @click="prevPage()"
+
+      />
+      <div
+        v-for="page in pageArray"
+        class="deg-list-pagination-pages"
+        :key="page"
+        @click="updatePage(page)"
+      >
+        {{ page }}
+      </div>
+      <deg-icon
+        v-if="hasNextPageIcon"
+        name="next_page"
+        @click="nextPage()"
+      />
+      <deg-icon
+        v-if="hasLastPageIcon"
+        name="last_page"
+        @click="lastPage()"
+      />
+    </div>
   </div>
 </template>
 
 <style scoped>
-.deg-list-table {
-  border: 1px solid rgb(233, 218, 119);
-  border-radius: 4px;
-  border-spacing: 0;
+.deg-list {
+  .deg-list-table {
+    border: 1px solid rgb(233, 218, 119);
+    border-radius: 4px;
+    border-spacing: 0;
 
-  thead {
-    background-color: rgba(23, 47, 102, 0.6);
-    border-top: 1px solid rgb(233, 218, 119);
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
+    thead {
+      background-color: rgba(23, 47, 102, 0.6);
+      border-top: 1px solid rgb(233, 218, 119);
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
 
-    th {
-      text-align: left;
-      font-weight: bold;
-      border-bottom: 1px solid rgb(233, 218, 119);
+      th {
+        text-align: left;
+        font-weight: bold;
+        border-bottom: 1px solid rgb(233, 218, 119);
 
-      &:first-child {
-        border-top-left-radius: 4px;
-      }
+        &:first-child {
+          border-top-left-radius: 4px;
+        }
 
-      &:last-child {
-        border-top-right-radius: 4px;
-      }
+        &:last-child {
+          border-top-right-radius: 4px;
+        }
 
-      &:not(:last-child) {
-        border-right: 1px solid rgb(233, 218, 119);
-      }
-    }
-  }
-
-  tbody {
-    tr {
-      &:nth-child(even) {
-        background-color: rgba(56, 110, 234, 0.3);
-      }
-
-      &:nth-child(odd) {
-        background-color: rgba(56, 110, 234, 0.4);
-      }
-
-      &:hover {
-        background-color: rgba(56, 110, 234, 0.6);
-        cursor: pointer;
-      }
-
-      &:active {
-        background-color: rgba(56, 110, 234, 0.55);
-        cursor: pointer;
-      }
-
-      &:not(:last-child) {
-        td {
-          border-bottom: 1px solid rgb(233, 218, 119);
+        &:not(:last-child) {
+          border-right: 1px solid rgb(233, 218, 119);
         }
       }
     }
 
-    tr:last-child {
-      td:first-child {
-        border-bottom-left-radius: 4px;
+    tbody {
+      tr {
+        &:nth-child(even) {
+          background-color: rgba(56, 110, 234, 0.3);
+        }
+
+        &:nth-child(odd) {
+          background-color: rgba(56, 110, 234, 0.4);
+        }
+
+        &:hover {
+          background-color: rgba(56, 110, 234, 0.6);
+          cursor: pointer;
+        }
+
+        &:active {
+          background-color: rgba(56, 110, 234, 0.55);
+          cursor: pointer;
+        }
+
+        &:not(:last-child) {
+          td {
+            border-bottom: 1px solid rgb(233, 218, 119);
+          }
+        }
       }
 
-      td:last-child {
-        border-bottom-right-radius: 4px;
+      tr:last-child {
+        td:first-child {
+          border-bottom-left-radius: 4px;
+        }
+
+        td:last-child {
+          border-bottom-right-radius: 4px;
+        }
+      }
+    
+      tr {
+        td:not(:last-child) {
+          border-right: 1px solid rgb(233, 218, 119);
+        }
       }
     }
-  
-    tr {
-      td:not(:last-child) {
-        border-right: 1px solid rgb(233, 218, 119);
+
+    th, td {
+      padding: 0.25rem;
+    }
+  }
+
+  &[has-pagination="true"] {
+    .deg-list-table {
+      color: fuchsia;
+    }
+
+    .deg-list-table tbody tr:last-child {
+      td:last-child {
+        border-bottom-right-radius: 0;
+      }
+
+      td:first-child {
+        border-bottom-left-radius: 0;
       }
     }
   }
 
-  th, td {
-    padding: 0.25rem;
+  .deg-list-pagination {
+    background-color: rgba(29, 61, 135, 0.6);
+    border: 1px solid rgb(233, 218, 119);
+    border-top: none;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    display: flex;
+    justify-content: space-evenly;
   }
 }
+
 
 </style>

@@ -6,6 +6,10 @@ const CANCEL_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 20
 const FILTER_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048"><path d="M2048 128v219l-768 768v805H768v-805L0 347V128h2048zm-128 128H128v37l768 768v731h256v-731l768-768v-37z" fill="currentColor"/></svg>`;
 const CHEVRON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M4 6l4 4 4-4H4z"/></svg>`
 const ADD_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048"><path d="M1792 896v256H1344v448h-256v-448H640V896h448V448h256v448h448z" fill="currentColor"/></svg>`;
+const NEXT_PAGE_SVG = `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 5l6 5-6 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const PREV_PAGE_SVG = `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 5l-6 5 6 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const FIRST_PAGE_SVG = `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 5l-5 5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 5l-5 5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const LAST_PAGE_SVG = `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
 const DELETE = "delete";
 const LOAD = "load";
@@ -15,8 +19,12 @@ const CANCEL = "cancel";
 const FILTER = "filter";
 const CHEVRON = "chevron";
 const ADD = "add";
+const NEXT_PAGE = "next_page";
+const PREV_PAGE = "prev_page";
+const FIRST_PAGE = "first_page";
+const LAST_PAGE = "last_page";
 
-const ICON_LIST = [DELETE, LOAD, SAVE, INFO, CANCEL, FILTER, CHEVRON, ADD];
+const ICON_LIST = [DELETE, LOAD, SAVE, INFO, CANCEL, FILTER, CHEVRON, ADD, NEXT_PAGE, PREV_PAGE, FIRST_PAGE, LAST_PAGE];
 
 const ICON_SVGS = {
     [DELETE]: DELETE_SVG,
@@ -27,6 +35,10 @@ const ICON_SVGS = {
     [FILTER]: FILTER_SVG,
     [CHEVRON]: CHEVRON_SVG,
     [ADD]: ADD_SVG,
+    [NEXT_PAGE]: NEXT_PAGE_SVG,
+    [PREV_PAGE]: PREV_PAGE_SVG,
+    [FIRST_PAGE]: FIRST_PAGE_SVG,
+    [LAST_PAGE]: LAST_PAGE_SVG,
 };
 
 export default {
@@ -38,6 +50,10 @@ export default {
     FILTER,
     CHEVRON,
     ADD,
+    NEXT_PAGE,
+    PREV_PAGE,
+    FIRST_PAGE,
+    LAST_PAGE,
     
     ICON_LIST,
     ICON_SVGS,
