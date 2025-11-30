@@ -9,13 +9,13 @@ const monsterList2 = ref([]);
 const listIcons = ref(["info", "add"]);
 const columns = ref(["name", "size", "type", "alignment", "challenge_rating"]);
 const hasPagination = ref(true);
-const numbersPerPage = ref(5);
+const numbersPerPage = ref(4);
 
 
 onMounted(async () => {
   const response = await fetch('src/common/srdMonsters.json');
   const data = await response.json();
-  monsterList1.value = data.slice(0, 14);
+  monsterList1.value = data.slice(0, 42);
   monsterList2.value = data.slice(0, 2);
 
   console.log(monsterList1.value);

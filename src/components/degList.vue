@@ -3,7 +3,7 @@ import { computed, ref } from 'vue'
 
 import degIcon from '../components/degIcon.vue'
 
-const pageNumber = ref(1);
+const pageNumber = ref(4);
 
 const props = defineProps({
   rows: {
@@ -40,8 +40,35 @@ const totalPages = computed(() => {
   return Math.ceil(props.rows.length / props.numbersPerPage);
 });
 
-const pageArray = computed(() => {
-  return Array.from({ length: totalPages.value }, (_, i) => i + 1);
+const paginationArray = computed(() => {
+  if (totalPages.value < 7)
+    return Array.from({ length: totalPages.value }, (_, i) => i + 1);
+
+  const pagination = Array(7);
+
+  pagination[0] = 1;
+  pagination[6] = totalPages.value;
+
+  if (pageNumber.value <= 4) {
+    pagination[1] = 2;
+    pagination[2] = 3;
+    pagination[3] = 4;
+    pagination[4] = 5;
+    pagination[5] = '...';
+  } else if (pageNumber.value >= totalPages.value - 3) {
+    pagination[1] = '...';
+    pagination[2] = totalPages.value - 4;
+    pagination[3] = totalPages.value - 3;
+    pagination[4] = totalPages.value - 2;
+    pagination[5] = totalPages.value - 1;
+  } else {
+    pagination[1] = '...';
+    pagination[2] = pageNumber.value - 1;
+    pagination[3] = pageNumber.value;
+    pagination[4] = pageNumber.value + 1;
+    pagination[5] = '...';
+  }
+  return pagination;
 });
 
 const getPageRows = computed(() => {
@@ -135,7 +162,7 @@ const lastPage = () => {
 
       />
       <div
-        v-for="page in pageArray"
+        v-for="page in paginationArray"
         class="deg-list-pagination-pages"
         :key="page"
         @click="updatePage(page)"
@@ -254,7 +281,7 @@ const lastPage = () => {
   }
 
   .deg-list-pagination {
-    background-color: rgba(29, 61, 135, 0.6);
+    background-color: rgba(23, 47, 102, 0.6);
     border: 1px solid rgb(233, 218, 119);
     border-top: none;
     border-bottom-left-radius: 4px;
