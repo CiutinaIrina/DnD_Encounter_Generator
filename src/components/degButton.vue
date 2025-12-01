@@ -26,21 +26,6 @@ const componentProps = computed(() => {
   </button>
 </template>
 
-<style scoped>
-.deg-button {
-  height: 1.5rem;
-  font-size: 1rem;
-  margin: 0.25rem;
-  border: 0.5px solid rgb(233, 218, 119);
-  border-radius: 6px;
-  background-color: rgba(56, 110, 234, 0.3);;
-
-  &:hover {
-    background-color: rgba(56, 110, 234, 0.2);;
-  }
-
-  &:active {
-    background-color: rgba(56, 110, 234, 0.4);;
-  }
-}
+<style lang="scss" scoped>
+@import "@/css/components/degButton.scss";
 </style>

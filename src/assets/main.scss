@@ -1,0 +1,11 @@
+@import './base.css';
+@import url('https://fonts.googleapis.com/css2?family=Cardo&display=swap');
+@import '@/css/constants.scss';
+
+* {
+    font-family: 'Cardo', serif;
+}
+
+h3, p {
+    color: $contrast;
+}

@@ -1,0 +1,106 @@
+@import '../constants.scss';
+@import '../mixins.scss';
+
+.deg-list {
+  .deg-list-table {
+    border: 1px solid $contrast;
+    border-radius: $radius;
+    border-spacing: 0;
+
+    thead {
+      @include border-top-radius;
+      color: $contrast;
+      background-color: $mainHeader;
+      border-top: 1px solid $contrast;
+
+      th {
+        text-align: left;
+        font-weight: bold;
+        border-bottom: 1px solid $contrast;
+
+        &:first-child {
+          border-top-left-radius: 4px;
+        }
+
+        &:last-child {
+          border-top-right-radius: 4px;
+        }
+
+        &:not(:last-child) {
+          border-right: 1px solid $contrast;
+        }
+      }
+    }
+
+    tbody {
+      color: $contrast;
+      tr {
+        &:nth-child(even) {
+          background-color: $mainEven;
+        }
+
+        &:nth-child(odd) {
+          background-color: $mainOdd;
+        }
+
+        &:hover {
+          background-color: $mainHoover;
+          cursor: pointer;
+        }
+
+        &:active {
+          background-color: $mainActive;
+          cursor: pointer;
+        }
+
+        &:not(:last-child) {
+          td {
+            border-bottom: 1px solid $contrast;
+          }
+        }
+      }
+
+      tr:last-child {
+        td:first-child {
+          border-bottom-left-radius: $radius;
+        }
+
+        td:last-child {
+          border-bottom-right-radius: $radius;
+        }
+      }
+    
+      tr {
+        td:not(:last-child) {
+          border-right: 1px solid $contrast;
+        }
+      }
+    }
+
+    th, td {
+      padding: 0.25rem;
+    }
+  }
+
+  &[has-pagination="true"] {
+    .deg-list-table tbody tr:last-child {
+      td:last-child {
+        border-bottom-right-radius: 0;
+      }
+
+      td:first-child {
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+
+  .deg-list-pagination {
+    @include border-bottom-radius;
+    background-color: $mainHeader;
+    color: $contrast;
+    border: 1px solid $contrast;
+    border-top: none;
+    display: flex;
+    justify-content: space-evenly;
+  }
+}

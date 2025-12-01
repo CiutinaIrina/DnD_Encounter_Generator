@@ -1,0 +1,9 @@
+@import '../mixins.scss';
+    
+.deg-box {
+  @include basic-box;
+  height: var(--height);
+  width: var(--width);
+  padding: 0.25rem;
+}
+

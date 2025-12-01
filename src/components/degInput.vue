@@ -41,21 +41,6 @@ const onInput = () => {
   </div>
 </template>
 
-<style scoped>
-.deg-input {
-  .deg-input-label {
-    color:rgb(233, 218, 119);
-    margin-right: 0.25rem;
-  }
-
-  .deg-input-field {
-    background-color: rgba(56, 110, 234, 0.3);
-    outline: none;
-    border: none;
-    box-shadow: inset 0 0 0 0.5px rgb(233, 218, 119);
-    border-radius: 6px;
-    height: 1.5rem;
-    padding: 0.25rem;
-  }
-}
+<style lang="scss" scoped>
+@import "@/css/components/degInput.scss";
 </style>

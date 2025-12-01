@@ -1,0 +1,30 @@
+@import 'constants.scss';
+
+@mixin basic-box {
+    color: $contrast;
+    background-color: $main;
+    border: 0.5px solid $contrast;
+    border-radius: $radius;
+}
+
+@mixin border-top-radius {
+    border-top-left-radius: $radius;
+    border-top-right-radius: $radius;
+}
+
+@mixin border-bottom-radius {
+    border-bottom-left-radius: $radius;
+    border-bottom-right-radius: $radius;
+}
+
+@mixin list-box-border {
+    &:first-child {
+        @include border-top-radius;
+    }
+
+    &:last-child {
+        @include border-bottom-radius;
+    }
+}
+
+

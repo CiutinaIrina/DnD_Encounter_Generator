@@ -1,0 +1,17 @@
+@import '../constants.scss';
+@import '../mixins.scss';
+
+.deg-button {
+  @include basic-box;
+  height: 1.5rem;
+  font-size: 1rem;
+  margin: 0.25rem;
+
+  &:hover {
+    background-color: $mainHoover;
+  }
+
+  &:active {
+    background-color: $mainActive;
+  }
+}

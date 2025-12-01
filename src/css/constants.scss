@@ -1,0 +1,9 @@
+$main: rgba(58, 109, 228, 0.45);
+$contrast: #fffdc8;
+$radius: 0.25rem;
+
+$mainHoover: darken($main, 20%);
+$mainActive: lighten($main, 20%);
+$mainHeader: darken($main, 25%);
+$mainOdd: lighten($main, 8%);
+$mainEven: darken($main, 5%);
