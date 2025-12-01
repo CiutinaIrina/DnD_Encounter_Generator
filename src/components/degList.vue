@@ -14,6 +14,10 @@ const props = defineProps({
     type: Array,
     required: true,
   },
+  columnsStyling: {
+    type: Array,
+    default: () => [],
+  },
   icons: {
     type: Array,
     default: () => [],
@@ -41,32 +45,26 @@ const totalPages = computed(() => {
 });
 
 const paginationArray = computed(() => {
-  if (totalPages.value < 7)
+  if (totalPages.value < 5)
     return Array.from({ length: totalPages.value }, (_, i) => i + 1);
 
-  const pagination = Array(7);
+  const pagination = Array(5);
 
   pagination[0] = 1;
-  pagination[6] = totalPages.value;
+  pagination[4] = totalPages.value;
 
   if (pageNumber.value <= 4) {
     pagination[1] = 2;
     pagination[2] = 3;
-    pagination[3] = 4;
-    pagination[4] = 5;
-    pagination[5] = '...';
+    pagination[3] = '...';
   } else if (pageNumber.value >= totalPages.value - 3) {
     pagination[1] = '...';
-    pagination[2] = totalPages.value - 4;
-    pagination[3] = totalPages.value - 3;
-    pagination[4] = totalPages.value - 2;
-    pagination[5] = totalPages.value - 1;
+    pagination[2] = totalPages.value - 2;
+    pagination[3] = totalPages.value - 1;
   } else {
     pagination[1] = '...';
-    pagination[2] = pageNumber.value - 1;
-    pagination[3] = pageNumber.value;
-    pagination[4] = pageNumber.value + 1;
-    pagination[5] = '...';
+    pagination[2] = pageNumber.value;
+    pagination[3] = '...';
   }
   return pagination;
 });
@@ -113,6 +111,12 @@ const lastPage = () => {
   updatePage(totalPages.value);
 };
 
+const getColumnStyle = (index) => {
+  return props.columnsStyling[index] ? {
+    width: props.columnsStyling[index].width,
+    textAlign: props.columnsStyling[index].textAlign,
+  } : {} ;
+};
 
 </script>
 
@@ -122,8 +126,9 @@ const lastPage = () => {
       <thead>
         <tr>
           <th
-            v-for="column in computedColumns"
-            :key="column"
+            v-for="(column, key) in computedColumns"
+            :key="key"
+            :style="getColumnStyle(key)"
           >
             {{ columnHeaderFormatter(column) }}
           </th>
@@ -135,8 +140,9 @@ const lastPage = () => {
           :key="row"
         >
           <td
-            v-for="column in columns"
+            v-for="(column, key) in columns"
             :key="column"
+            :style="getColumnStyle(key)"
           >
             {{ row[column] }}
           </td>

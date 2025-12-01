@@ -25,10 +25,6 @@
         &:last-child {
           border-top-right-radius: 4px;
         }
-
-        &:not(:last-child) {
-          border-right: 1px solid $contrast;
-        }
       }
     }
 
@@ -69,16 +65,15 @@
           border-bottom-right-radius: $radius;
         }
       }
-    
-      tr {
-        td:not(:last-child) {
-          border-right: 1px solid $contrast;
-        }
-      }
     }
 
     th, td {
       padding: 0.25rem;
+    }
+
+    td {
+      height: 3rem;
+      font-size: 0.75rem;
     }
   }
 

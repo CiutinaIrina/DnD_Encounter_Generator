@@ -1,6 +1,7 @@
 $main: rgba(58, 109, 228, 0.45);
 $contrast: #fffdc8;
 $radius: 0.25rem;
+$disabledContrast: #303030;
 
 $mainHoover: darken($main, 20%);
 $mainActive: lighten($main, 20%);

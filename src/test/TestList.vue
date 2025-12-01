@@ -8,6 +8,13 @@ const monsterList1 = ref([]);
 const monsterList2 = ref([]);
 const listIcons = ref(["info", "add"]);
 const columns = ref(["name", "size", "type", "alignment", "challenge_rating"]);
+const columnsStyling = ref([
+  { name: "name", width: "13rem", textAlign: "" },
+  { name: "size", width: "6rem", textAlign: "right" },
+  { name: "type", width: "6rem", textAlign: "center" },
+  { name: "alignment", width: "6rem", textAlign: "left" },
+  { name: "challenge_rating", width: "2.5rem", textAlign: "" },
+]);
 const hasPagination = ref(true);
 const numbersPerPage = ref(4);
 
@@ -47,6 +54,7 @@ const togglePagination = () => {
       :columns="columns"
       :icons="listIcons"
       :column-header-formatter="columnHeaderFormatter"
+      :columns-styling="columnsStyling"
       :has-pagination="hasPagination"
       :numbers-per-page="numbersPerPage"
     />
