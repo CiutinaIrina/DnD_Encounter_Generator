@@ -5,7 +5,6 @@ import degList from '../components/degList.vue'
 import degButton from '../components/degButton.vue'
 
 const monsterList1 = ref([]);
-const monsterList2 = ref([]);
 const listIcons = ref(["info", "add"]);
 const columns = ref(["name", "size", "type", "alignment", "challenge_rating"]);
 const columnsStyling = ref([
@@ -16,14 +15,14 @@ const columnsStyling = ref([
   { name: "challenge_rating", width: "2.5rem", textAlign: "" },
 ]);
 const hasPagination = ref(true);
-const numbersPerPage = ref(4);
+const numbersPerPage = ref(10);
 
 
 onMounted(async () => {
   const response = await fetch('src/common/srdMonsters.json');
   const data = await response.json();
-  monsterList1.value = data.slice(0, 42);
-  monsterList2.value = data.slice(0, 2);
+  const license = data.pop();
+  monsterList1.value = data;
 
   console.log(monsterList1.value);
 });

@@ -9,6 +9,7 @@
 
     thead {
       @include border-top-radius;
+      height: 3rem;
       color: $contrast;
       background-color: $mainHeader;
       border-top: 1px solid $contrast;
@@ -19,11 +20,11 @@
         border-bottom: 1px solid $contrast;
 
         &:first-child {
-          border-top-left-radius: 4px;
+          border-top-left-radius: $radius;
         }
 
         &:last-child {
-          border-top-right-radius: 4px;
+          border-top-right-radius: $radius;
         }
       }
     }
@@ -74,6 +75,10 @@
     td {
       height: 3rem;
       font-size: 0.75rem;
+
+      &.deg-list-icon-cell {
+        width: 2.75rem;
+      }
     }
   }
 
@@ -91,6 +96,7 @@
 
   .deg-list-pagination {
     @include border-bottom-radius;
+    Height: 3rem;
     background-color: $mainHeader;
     color: $contrast;
     border: 1px solid $contrast;

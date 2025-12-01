@@ -12,15 +12,24 @@ const props = defineProps({
     type: String,
     default: CONSTANTS.CONTRAST,
   },
+  disabled: {
+    type: Boolean,
+    default: false,
+  },
 })
 
-const svgHtml = computed(() =>
-  ICONS.ICON_SVGS[props.name]?.replace(/fill=['"][^'"]*['"]/g, "fill='color'")
-)
+const iconColor = computed(() => {
+  return props.disabled ? CONSTANTS.DISABLED_CONTRAST : props.color;
+});
+
 </script>
 
 <template>
-  <span v-html="svgHtml" :style="{ color: props.color }" class="deg-icon-svg"></span>
+  <span
+    v-html="ICONS.ICON_SVGS[name]"
+    :style="{ color: iconColor }"
+    class="deg-icon-svg"
+  ></span>
 </template>
 
 <style lang="scss" scoped>

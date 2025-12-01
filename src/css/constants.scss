@@ -1,10 +1,14 @@
 $main: rgba(58, 109, 228, 0.45);
 $contrast: #fffdc8;
 $radius: 0.25rem;
-$disabledContrast: #303030;
+$disabledText: #303030;
 
 $mainHoover: darken($main, 20%);
 $mainActive: lighten($main, 20%);
 $mainHeader: darken($main, 25%);
 $mainOdd: lighten($main, 8%);
 $mainEven: darken($main, 5%);
+
+$mainOpaque: #3A6DE4;
+$mainOpaqueHover: #234DB8;   // ~20% darker
+$mainOpaqueActive: #7DA2F0;  // ~20% lighter

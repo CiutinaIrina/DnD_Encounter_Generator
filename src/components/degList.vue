@@ -146,7 +146,11 @@ const getColumnStyle = (index) => {
           >
             {{ row[column] }}
           </td>
-          <td v-for="icon in props.icons" :key="icon">
+          <td
+            v-for="(icon, key) in props.icons"
+            :key="key"
+            class="deg-list-icon-cell"
+          >
             <deg-icon :name="icon" />
           </td>
         </tr>

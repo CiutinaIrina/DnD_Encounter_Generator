@@ -36,7 +36,7 @@
     }
 
     .deg-dropdown-menu-list {
-      @include basic-box;
+      @include opaque-box;
       grid-area: list;
       margin: 2rem 0.25rem 0.25rem 0.25rem;
       cursor: pointer;
@@ -46,11 +46,11 @@
         padding: 0.2rem;
         &:hover {
           @include list-box-border;
-          background-color: $mainHoover;
+          background-color: $mainOpaqueHover;
         }
         &:active {
           @include list-box-border;
-          background-color: $mainActive;
+          background-color: $mainOpaqueActive;
         }
       }
     }
