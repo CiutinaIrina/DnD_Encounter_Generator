@@ -70,6 +70,10 @@
 
     th, td {
       padding: 0.25rem;
+
+      &:first-child {
+        padding-left: 0.5rem;
+      }
     }
 
     td {
@@ -82,26 +86,60 @@
     }
   }
 
-  &[has-pagination="true"] {
-    .deg-list-table tbody tr:last-child {
-      td:last-child {
-        border-bottom-right-radius: 0;
-      }
+  &.deg-list-has-pagination {
+    .deg-list-table {
+      border-radius: 0;
+      @include border-top-radius;
+    }
 
-      td:first-child {
-        border-bottom-left-radius: 0;
-      }
+    .deg-list-table tbody tr:last-child td {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
     }
   }
 
   .deg-list-pagination {
     @include border-bottom-radius;
-    Height: 3rem;
+    height: 3rem;
     background-color: $mainHeader;
     color: $contrast;
     border: 1px solid $contrast;
     border-top: none;
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
+
+    .deg-list-pagination-content {
+        display: flex;
+        gap: 1rem;
+
+        .deg-list-pagination-left-icons {
+            gap: 0.5rem;
+        }
+
+        .deg-list-pagination-pages {
+            display: flex;
+            gap: 1.25rem;
+            margin-top: 2px;
+
+            .deg-list-pagination-page {
+                cursor: pointer;
+                height: 0.5rem;
+                width: 0.5rem;
+
+                &.deg-list-page-active {
+                    color: $highlight;
+                }
+            }
+        }
+
+        .deg-list-pagination-page-number {
+            gap: 0.5rem;
+        }
+
+        .deg-icon-svg {
+            cursor: pointer;
+        }
+    }
   }
 }

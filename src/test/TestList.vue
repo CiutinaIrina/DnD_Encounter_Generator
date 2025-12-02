@@ -15,7 +15,7 @@ const columnsStyling = ref([
   { name: "challenge_rating", width: "2.5rem", textAlign: "" },
 ]);
 const hasPagination = ref(true);
-const numbersPerPage = ref(10);
+const numbersPerPage = ref(3);
 
 
 onMounted(async () => {

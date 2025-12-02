@@ -53,11 +53,11 @@ const paginationArray = computed(() => {
   pagination[0] = 1;
   pagination[4] = totalPages.value;
 
-  if (pageNumber.value <= 4) {
+  if (pageNumber.value <= 3) {
     pagination[1] = 2;
     pagination[2] = 3;
     pagination[3] = '...';
-  } else if (pageNumber.value >= totalPages.value - 3) {
+  } else if (pageNumber.value >= totalPages.value - 2) {
     pagination[1] = '...';
     pagination[2] = totalPages.value - 2;
     pagination[3] = totalPages.value - 1;
@@ -72,7 +72,7 @@ const paginationArray = computed(() => {
 const getPageRows = computed(() => {
   const startIndex = (pageNumber.value - 1) * props.numbersPerPage;
   const endIndex = startIndex + props.numbersPerPage;
-  return props.rows.slice(startIndex, endIndex);
+  return totalDisplayedRows.value.slice(startIndex, endIndex);
 });
 
 const hasFirstPageIcon = computed(() => {
@@ -91,24 +91,58 @@ const hasLastPageIcon = computed(() => {
   return pageNumber.value < totalPages.value - 1;
 });
 
+const totalDisplayedRows = computed(() => {
+  const fillerRowsNumber = totalPages.value * props.numbersPerPage - props.rows.length,
+    fillerRows = Array.from({ length: fillerRowsNumber }, () => ({}));
+  return [...props.rows, ...fillerRows];
+});
+
+const listClasses = computed(() => {
+  return {
+    'deg-list': true,
+    'deg-list-has-pagination': props.hasPagination,
+  };
+});
+
+const rowHasData = (rowKey) => {
+  const rowIndex = rowKey + (pageNumber.value - 1) * props.numbersPerPage;
+  return rowIndex < props.rows.length;
+};
+
 const updatePage = (page) => {
+  if( page === '...' ) return;
   pageNumber.value = page;
 };
 
 const firstPage = () => {
+  if (!hasFirstPageIcon.value) return;
   updatePage(1);
 };
 
 const prevPage = () => {
+  if (!hasPrevPageIcon.value) return;
   updatePage(pageNumber.value - 1);
 };
 
 const nextPage = () => {
+  if (!hasNextPageIcon.value) return;
   updatePage(pageNumber.value + 1);
 };
 
 const lastPage = () => {
+  if (!hasLastPageIcon.value) return;
   updatePage(totalPages.value);
+};
+
+const isPageActive = (page) => {
+  return page === pageNumber.value;
+};
+
+const pageClasses = (page) => {
+  return {
+    'deg-list-pagination-page': true,
+    'deg-list-page-active': isPageActive(page),
+  };
 };
 
 const getColumnStyle = (index) => {
@@ -121,14 +155,14 @@ const getColumnStyle = (index) => {
 </script>
 
 <template>
-  <div class="deg-list">
+  <div :class="listClasses">
     <table class="deg-list-table">
       <thead>
         <tr>
           <th
-            v-for="(column, key) in computedColumns"
-            :key="key"
-            :style="getColumnStyle(key)"
+            v-for="(column, headerKey) in computedColumns"
+            :key="headerKey"
+            :style="getColumnStyle(headerKey)"
           >
             {{ columnHeaderFormatter(column) }}
           </th>
@@ -136,22 +170,25 @@ const getColumnStyle = (index) => {
       </thead>
       <tbody>
         <tr
-          v-for="row in getPageRows"
-          :key="row"
+          v-for="(row, rowKey) in getPageRows"
+          :key="rowKey"
         >
           <td
-            v-for="(column, key) in columns"
-            :key="column"
-            :style="getColumnStyle(key)"
+            v-for="(column, columnKey) in columns"
+            :key="columnKey"
+            :style="getColumnStyle(columnKey)"
           >
             {{ row[column] }}
           </td>
           <td
-            v-for="(icon, key) in props.icons"
-            :key="key"
+            v-for="(icon, iconKey) in props.icons"
+            :key="iconKey"
             class="deg-list-icon-cell"
           >
-            <deg-icon :name="icon" />
+            <deg-icon
+              v-if="rowHasData(rowKey)"
+              :name="icon"
+            />
           </td>
         </tr>
       </tbody>
@@ -160,35 +197,43 @@ const getColumnStyle = (index) => {
       v-if="hasPagination"
       class="deg-list-pagination"
     >
-      <deg-icon
-        v-if="hasFirstPageIcon"
-        name="first_page"
-        @click="firstPage()"
-      />
-      <deg-icon
-        v-if="hasPrevPageIcon"
-        name="prev_page"
-        @click="prevPage()"
+      <div class="deg-list-pagination-content">
+        <div class="deg-list-pagination-left-icons">
+          <deg-icon
+            :disabled="!hasFirstPageIcon"
+            name="first_page"
+            @click="firstPage()"
+          />
+          <deg-icon
+            :disabled="!hasPrevPageIcon"
+            name="prev_page"
+            @click="prevPage()"
 
-      />
-      <div
-        v-for="page in paginationArray"
-        class="deg-list-pagination-pages"
-        :key="page"
-        @click="updatePage(page)"
-      >
-        {{ page }}
+          />
+        </div>
+        <div class="deg-list-pagination-pages">
+          <div
+            v-for="page in paginationArray"
+            :key="page"
+            :class="pageClasses(page)"
+            @click="updatePage(page)"
+          >
+            {{ page }}
+          </div>
+        </div>
+        <div class="deg-list-pagination-right-icons">
+          <deg-icon
+            :disabled="!hasNextPageIcon"
+            name="next_page"
+            @click="nextPage()"
+          />
+          <deg-icon
+            :disabled="!hasLastPageIcon"
+            name="last_page"
+            @click="lastPage()"
+          />
+        </div>
       </div>
-      <deg-icon
-        v-if="hasNextPageIcon"
-        name="next_page"
-        @click="nextPage()"
-      />
-      <deg-icon
-        v-if="hasLastPageIcon"
-        name="last_page"
-        @click="lastPage()"
-      />
     </div>
   </div>
 </template>
