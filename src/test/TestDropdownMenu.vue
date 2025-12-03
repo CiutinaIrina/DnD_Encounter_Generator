@@ -26,6 +26,14 @@ const onUpdate = (value) => {
         v-model="selectedSkillLevel"
         @update:model-value="onUpdate"
     />
+    <br>
+    <deg-dropdown-menu
+        label="Party Level (no close on select) :"
+        :list-items="skillLevelList"
+        v-model="selectedSkillLevel"
+        :close-on-select="false"
+        @update:model-value="onUpdate"
+    />
   </div>
 </template>
 

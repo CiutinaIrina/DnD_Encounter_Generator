@@ -2,12 +2,6 @@
 @import '../mixins.scss';
 
 .deg-dropdown-menu {
-  display: inline-grid;
-  grid-template-columns: 1fr auto;
-  grid-template-rows: auto auto;
-  grid-template-areas: "label button"
-                       "spacer list";
-
   .deg-dropdown-label {
     grid-area: label;
     align-self: center;
@@ -18,11 +12,18 @@
     grid-area: button;
     text-align-last: justify;
     width: 8rem;
+    cursor: pointer;
 
     .deg-icon-svg {
       margin-left: 0.5rem;
-      transition: transform 0.25s ease;
-      transform: rotate(90deg);
+      display: inline-block;
+      transform: rotate(0deg);
+      transition: transform 0.5s ease-in-out;
+    }
+
+    &:active svg{
+      width: 50rem;
+       transform: rotate(20deg);
     }
   }
 
@@ -38,7 +39,7 @@
     .deg-dropdown-menu-list {
       @include opaque-box;
       grid-area: list;
-      margin: 2rem 0.25rem 0.25rem 0.25rem;
+      margin: 0rem 0.25rem 0.25rem 0.25rem;
       cursor: pointer;
       width: 8rem;
 
@@ -53,6 +54,14 @@
           background-color: $mainOpaqueActive;
         }
       }
+    }
+  }
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
     }
   }
 }

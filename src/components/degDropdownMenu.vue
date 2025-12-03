@@ -25,6 +25,10 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
+  closeOnSelect: {
+    type: Boolean,
+    default: true,
+  },
 })
 
 const toggleDropdown = () => {
@@ -32,7 +36,9 @@ const toggleDropdown = () => {
 }
 
 const selectValue = (item) => {
-  open.value = false
+  if (props.closeOnSelect)
+    open.value = false
+  
   emit('update:modelValue', item)
 }
 

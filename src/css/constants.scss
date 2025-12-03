@@ -10,6 +10,6 @@ $mainHeader: darken($main, 25%);
 $mainOdd: lighten($main, 8%);
 $mainEven: darken($main, 5%);
 
-$mainOpaque: #3A6DE4;
-$mainOpaqueHover: #234DB8;   // ~20% darker
-$mainOpaqueActive: #7DA2F0;  // ~20% lighter
+$mainOpaque: #4d6aaefa;
+$mainOpaqueHover: darken($mainOpaque, 5%);// ~20% darker
+$mainOpaqueActive: lighten($mainOpaque, 5%);  // ~20% lighter
