@@ -1,0 +1,6 @@
+@import '../constants.scss';
+@import '../mixins.scss';
+
+.deg-popup {
+    @include basic-box;
+}
