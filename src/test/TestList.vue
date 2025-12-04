@@ -24,7 +24,7 @@ onMounted(async () => {
   const license = data.pop();
   monsterList1.value = data;
 
-  console.log(monsterList1.value);
+  console.log(license);
 });
 
 const columnHeaderFormatter = (column) => {

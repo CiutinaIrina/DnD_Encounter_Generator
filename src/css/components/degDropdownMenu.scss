@@ -3,14 +3,11 @@
 
 .deg-dropdown-menu {
   .deg-dropdown-label {
-    grid-area: label;
     align-self: center;
     color: $contrast;
   }
 
   .deg-dropdown-menu-button {
-    grid-area: button;
-    text-align-last: justify;
     width: 8rem;
     cursor: pointer;
 
@@ -27,35 +24,21 @@
     }
   }
 
-  .deg-dropdown-menu-bottom-container {
-    position: fixed;
-    display: flex;
+  .deg-dropdown-menu-popup-list-item {
+    padding: 0.2rem;
 
-    .deg-dropdown-menu-spacer {
-      grid-area: spacer;
-      visibility: hidden;
+    &:hover {
+      @include list-box-border;
+      background-color: $mainOpaqueHover;
     }
 
-    .deg-dropdown-menu-list {
-      @include opaque-box;
-      grid-area: list;
-      margin: 0rem 0.25rem 0.25rem 0.25rem;
-      cursor: pointer;
-      width: 8rem;
-
-      div {
-        padding: 0.2rem;
-        &:hover {
-          @include list-box-border;
-          background-color: $mainOpaqueHover;
-        }
-        &:active {
-          @include list-box-border;
-          background-color: $mainOpaqueActive;
-        }
-      }
+    &:active {
+      @include list-box-border;
+      background-color: $mainOpaqueActive;
     }
+
   }
+
   @keyframes spin {
     0% {
       transform: rotate(0deg);

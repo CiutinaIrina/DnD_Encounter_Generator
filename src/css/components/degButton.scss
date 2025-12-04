@@ -6,6 +6,7 @@
   height: 1.5rem;
   font-size: 1rem;
   margin: 0.25rem;
+  text-align-last: start;
 
   &:hover {
     background-color: $mainHoover;
@@ -16,7 +17,8 @@
   }
 
   .deg-icon-svg {
-    margin-top: 1px;
-    margin-right: 1px;
+    float: right;
+    position: relative;
+    bottom: 1.5px;
   }
 }

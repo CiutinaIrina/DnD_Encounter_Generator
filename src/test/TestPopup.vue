@@ -31,7 +31,10 @@ const onIconClick3 = () => {
     <deg-popup
       :open="isPopupOpen1"
       :anchor-el="$refs.icon1"
-    />
+      :height="5"
+      :width="8"
+    >
+    </deg-popup>
     <deg-icon
       ref="icon2"
       name="filter"
@@ -41,6 +44,8 @@ const onIconClick3 = () => {
     <deg-popup
       :anchor-el="$refs.icon2"
       :open="isPopupOpen2"
+      :height="5"
+      :width="8"
     />
     <deg-icon
       ref="icon3"
@@ -51,6 +56,8 @@ const onIconClick3 = () => {
     <deg-popup
       :anchor-el="$refs.icon3"
       :open="isPopupOpen3"
+      :height="5"
+      :width="8"
     />
   </div>
 </template>

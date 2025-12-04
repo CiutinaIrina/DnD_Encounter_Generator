@@ -2,6 +2,7 @@
 import { ref, computed } from 'vue'
 
 import degButton from '../components/degButton.vue'
+import degPopup from '../components/degPopup.vue'
 import ICONS from '@/common/icons.js'
 
 const open = ref(false)
@@ -36,42 +37,40 @@ const toggleDropdown = () => {
 }
 
 const selectValue = (item) => {
-  if (props.closeOnSelect)
-    open.value = false
-  
+  console.log("Selected item:", item);
+  if (props.closeOnSelect) open.value = false
+
   emit('update:modelValue', item)
 }
 
 const displayedLabel = computed(() => {
-  return props.modelValue?.level || props.placeholder
+  return props.modelValue?.label || props.placeholder
 })
-
 </script>
 
 <template>
   <div class="deg-dropdown-menu">
     <label class="deg-dropdown-label"> {{ props.label }} </label>
     <deg-button
+      ref="dropdownButton"
       :label="displayedLabel"
       :icon="ICONS.CHEVRON"
       @click="toggleDropdown"
       class="deg-dropdown-menu-button"
     />
-    <div class="deg-dropdown-menu-bottom-container">
-      <div class="deg-dropdown-menu-spacer"> {{ props.label }} </div>
-      <div class="deg-dropdown-menu-list" v-if="open">
-        <div
-          v-for="item in listItems"
-          :key="item.level"
-          @click="selectValue(item)"
-        >
-          {{ item.level }}
-        </div>
-      </div>
-    </div>
   </div>
+  <deg-popup
+    class="deg-dropdown-menu-popup"
+    :open="open"
+    :anchor-el="$refs.dropdownButton"
+    :list="listItems"
+    type="list"
+    width="fit-content"
+    @select="selectValue"
+  >
+  </deg-popup>
 </template>
 
 <style lang="scss" scoped>
-@import "@/css/components/degDropdownMenu.scss";
+@import '@/css/components/degDropdownMenu.scss';
 </style>
