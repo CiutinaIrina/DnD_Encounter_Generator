@@ -1,8 +1,8 @@
-$main: rgba(58, 109, 228, 0.45);
-$contrast: #fffdc8;
-$highlight: #FFA500;
+$main: #9370DB;
+$contrast: #FFD700;
+$highlight: fuchsia ;
 $radius: 0.25rem;
-$disabledText: #303030;
+$disabledText: #606060;
 
 $mainHoover: darken($main, 20%);
 $mainActive: lighten($main, 20%);
@@ -10,6 +10,6 @@ $mainHeader: darken($main, 25%);
 $mainOdd: lighten($main, 8%);
 $mainEven: darken($main, 5%);
 
-$mainOpaque: #4d6aaefa;
+$mainOpaque: #9370DB;
 $mainOpaqueHover: darken($mainOpaque, 5%);// ~20% darker
 $mainOpaqueActive: lighten($mainOpaque, 5%);  // ~20% lighter

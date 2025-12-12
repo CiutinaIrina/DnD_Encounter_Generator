@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import degIcon from '../components/degIcon.vue'
 
 const props = defineProps({
-	label: {
+	text: {
 		type: String,
 		required: true,
 	},
@@ -21,7 +21,7 @@ const componentProps = computed(() => {
 
 <template>
   <button class="deg-button">
-      {{ componentProps.label }}
+      {{ componentProps.text }}
       <deg-icon v-if="componentProps.icon" :name="componentProps.icon" />
   </button>
 </template>

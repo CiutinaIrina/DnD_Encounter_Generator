@@ -6,16 +6,16 @@ import ICONS from '@/common/icons.js'
 
 <template>
   <div>
-    <deg-button label="Create Easy Encounter"/>
+    <deg-button text="Create Easy Encounter"/>
     <br>
-    <deg-button label="Create Medium Encounter"/>
+    <deg-button text="Create Medium Encounter"/>
     <br>
-    <deg-button label="Create Hard Encounter"/>
+    <deg-button text="Create Hard Encounter"/>
     <br>
-    <deg-button label="Create BOSS Encounter"/>
+    <deg-button text="Create BOSS Encounter"/>
     <br>
     <deg-button
-      label="Create BOSS Encounter"
+      text="Create BOSS Encounter"
       :icon="ICONS.CHEVRON"
     />
   </div>

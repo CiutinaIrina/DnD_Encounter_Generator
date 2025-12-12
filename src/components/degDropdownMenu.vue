@@ -53,7 +53,7 @@ const displayedLabel = computed(() => {
     <label class="deg-dropdown-label"> {{ props.label }} </label>
     <deg-button
       ref="dropdownButton"
-      :label="displayedLabel"
+      :text="displayedLabel"
       :icon="ICONS.CHEVRON"
       @click="toggleDropdown"
       class="deg-dropdown-menu-button"
