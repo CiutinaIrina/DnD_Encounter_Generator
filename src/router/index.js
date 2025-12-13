@@ -15,11 +15,13 @@ import TestMonster from '../test/TestMonster.vue'
 import TestEncounter from '../test/TestEncounter.vue'
 import TestDungeon from '../test/TestDungeon.vue'
 import TestDropdownMenu from '../test/TestDropdownMenu.vue'
+import TestDot from '../test/TestDot.vue'
+import TestThemeSelector from '../test/TestThemeSelector.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    { 
+    {
       path: '/test',
       component: TestPage,
       children: [
@@ -37,6 +39,8 @@ const router = createRouter({
         { path: '/encounter', component: TestEncounter },
         { path: '/dungeon', component: TestDungeon },
         { path: '/dropdown-menu', component: TestDropdownMenu },
+        { path: '/dot', component: TestDot },
+        { path: '/theme-selector', component: TestThemeSelector }
       ]
     },
     { path: '/', component: MainPage },

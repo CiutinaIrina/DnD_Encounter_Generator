@@ -1,14 +1,16 @@
-$main: #9370DB;
-$contrast: #FFD700;
+$main2: #9370DB;
+//$contrast: #FFD700;
+$main: var(--main);
+$contrast: var(--contrast);
 $highlight: fuchsia ;
 $radius: 0.25rem;
 $disabledText: #606060;
 
-$mainHoover: darken($main, 20%);
-$mainActive: lighten($main, 20%);
-$mainHeader: darken($main, 25%);
-$mainOdd: lighten($main, 8%);
-$mainEven: darken($main, 5%);
+$mainHoover: darken($main2, 20%);
+$mainActive: lighten($main2, 20%);
+$mainHeader: darken($main2, 25%);
+$mainOdd: lighten($main2, 8%);
+$mainEven: darken($main2, 5%);
 
 $mainOpaque: #9370DB;
 $mainOpaqueHover: darken($mainOpaque, 5%);// ~20% darker

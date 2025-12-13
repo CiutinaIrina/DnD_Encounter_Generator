@@ -11,11 +11,21 @@ const props = defineProps({
     type: String,
     default: null,
   },
+  type: {
+    type: String,
+    default: 'default',
+  },
 })
 
 const componentProps = computed(() => {
   return props;
 })
+
+const iconColor = computed(() => {
+  if (props.type === 'affirmative') return 'green';
+  if (props.type === 'negative') return 'red';
+  return 'inherit';
+});
 
 </script>
 

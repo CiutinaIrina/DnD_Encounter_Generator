@@ -22,6 +22,8 @@ import { RouterLink, RouterView } from 'vue-router'
 			<br>
 			<RouterLink class="router-link" to="/dropdown-menu">Test Dropdown Menu</RouterLink>
 			<br>
+      <RouterLink class="router-link" to="/dot">Test Dot</RouterLink>
+      <br>
 			<h3> Advanced Components </h3>
 			<RouterLink class="router-link" to="/compendium">Test Compendium</RouterLink>
 			<br>
@@ -38,7 +40,8 @@ import { RouterLink, RouterView } from 'vue-router'
 			<br>
 			<RouterLink class="router-link" to="/monster">Test Monster</RouterLink>
 			<br>
-
+      <RouterLink class="router-link" to="/theme-selector">Test Theme Selector</RouterLink>
+      <br>
 		</div>
       </nav>
       <div class="test-page-content">
@@ -55,16 +58,16 @@ h3 {
 	height: 100vh;
 	width: 100%;
 	display: flex;
-	background: url('@/assets/images/DarkBackground.png');
+	background: rgb(100, 105, 192);
 	background-size: cover;
 	background-position: center;
 
 	nav {
-		background: url('@/assets/images/TestMenu.bmp');
+		background: rgba(12, 12, 71, 0.791);
 		background-size: cover;
 		background-position: center;
 		height: 100vh;
-		width: 20%;
+		width: 15%;
 
 		.test-page-links {
 			padding: 1rem;

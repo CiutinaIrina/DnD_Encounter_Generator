@@ -7,8 +7,10 @@ import degCompendium from './degCompendium.vue'
 import degButton from './degButton.vue'
 import degBox from './degBox.vue'
 import degList from './degList.vue'
+import degThemeSelector from './degThemeSelector.vue'
 
 import XP from '@/common/xp.js'
+import { changeColorTheme } from '@/plugins/colorTheme.js'
 
 const partySize = ref(4);
 const partyLevel = ref(1);
@@ -42,6 +44,10 @@ const updatePartyLevel = (e) => {
 
 const updatePartySkill = (e) => {
   partySkill.value = e;
+}
+
+const onSelectThemeSelector = (theme) => {
+  changeColorTheme(theme);
 }
 
 const testCalculateEncounter = (xp, pSize, pLevel) => {
@@ -147,6 +153,7 @@ const partyXpPerDay = computed(() => {
       >
       </deg-box>
       <hr>
+      <deg-theme-selector @select="onSelectThemeSelector" />
     </div>
     <div class="deg-title-screen-column-2">
       <hr>
