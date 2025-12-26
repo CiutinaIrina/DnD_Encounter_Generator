@@ -100,6 +100,10 @@ const partyXpPerDay = computed(() => {
 
 <template>
   <div class="deg-title-screen">
+    <div class="corner top left"></div>
+    <div class="corner top right"></div>
+    <div class="corner bottom left"></div>
+    <div class="corner bottom right"></div>
     <div class="deg-title-screen-column-1">
       <hr>
       <div class="deg-title-screen-party-xp">
@@ -167,55 +171,9 @@ const partyXpPerDay = computed(() => {
       <br>
       <deg-compendium />
     </div>
-
   </div>
 </template>
 
 <style scoped>
-.deg-title-screen {
-  height: 95%;
-  width: 95%;
-  background: rgba(57, 43, 85, 0.5);
-  display: flex;
-
-  .deg-title-screen-column-1 {
-    float: left;
-    width: 50%;
-    padding: 2rem;
-    box-sizing: border-box;
-    color: white;
-
-    .deg-title-screen-party-xp {
-      display: flex;
-
-
-      .deg-title-screen-party-xp-column-1 {
-        width: 50%;
-      }
-      .deg-title-screen-party-xp-column-2 {
-        width: 50%;
-        justify-content: space-around;
-        p {
-          margin: 0.75rem;
-        }
-
-      }
-    }
-  }
-  .deg-title-screen-column-2 {
-    float: right;
-    width: 50%;
-    padding: 2rem;
-    box-sizing: border-box;
-    color: white;
-  }
-
-  .deg-button, .deg-input, .deg-dropdown-menu, .deg-box {
-    margin: 0.75rem 0rem;
-  }
-
-  hr {
-    margin-bottom: 0.5rem;
-  }
-}
+@import '@/css/components/degTitleScreen.scss';
 </style>

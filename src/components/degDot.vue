@@ -1,29 +1,25 @@
 <script setup>
-
-import CONSTANTS from '@/common/constants.js'
+import THEMES from '@/common/themes.js'
 import { computed } from 'vue'
 
 const props = defineProps({
   theme: {
-    type: Object,
-    default: () => {},
+    type: String,
+    default: '',
   },
 })
 
 const emit = defineEmits(['select'])
 
-const onClick = () => (
-  emit('select', props.theme)
-);
+const onClick = () => emit('select', props.theme)
 
 const mainColor = computed(() => {
-  return CONSTANTS.THEMES[props.theme].MAIN
-});
+  return THEMES[props.theme].MAIN
+})
 
 const contrastColor = computed(() => {
-  return CONSTANTS.THEMES[props.theme].CONTRAST
-});
-
+  return THEMES[props.theme].CONTRAST
+})
 </script>
 
 <template>
@@ -31,12 +27,12 @@ const contrastColor = computed(() => {
     class="deg-dot"
     :style="{
       'background-color': mainColor,
-      'border': '2px solid ' + contrastColor,
+      border: '2px solid ' + contrastColor,
     }"
     @click="onClick"
   />
 </template>
 
 <style lang="scss" scoped>
-@import "@/css/components/degDot.scss";
+@import '@/css/components/degDot.scss';
 </style>

@@ -1,0 +1,24 @@
+reset default_settings;
+
+load program_opening;
+
+flush cache;
+
+const ALPHA = loadMemory("/recent/alpha/a");
+const BETA = loadMemory("/recent/beta/a");
+const DELTA = loadMemory("/recent/delta/a");
+const EPSILON = loadMemory("/recent/epsilon/a");
+
+const MEMORY_NACLETTE = [ALPHA, BETA, DELTA, EPSILON];
+
+chech_if(MEMORY_NACLETTE.validData());
+
+while check();
+
+catch {
+    ERROR;
+    interface.display("Error 420. Cannot find memory drive ALPHA");
+    interface.display("Error 420. Cannot find memory drive BETA");
+    interface.display("Error 420. Cannot find memory drive DELTA");
+    interface.display("Error 420. Cannot find memory drive EPSILON");
+}

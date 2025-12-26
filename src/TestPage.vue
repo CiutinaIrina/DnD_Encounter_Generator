@@ -1,6 +1,11 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import degThemeSelector from './components/degThemeSelector.vue';
+import { changeColorTheme } from '@/plugins/colorTheme.js'
 
+const onThemeSelect = (theme) => {
+  changeColorTheme(theme);
+}
 </script>
 
 <template>
@@ -42,6 +47,7 @@ import { RouterLink, RouterView } from 'vue-router'
 			<br>
       <RouterLink class="router-link" to="/theme-selector">Test Theme Selector</RouterLink>
       <br>
+      <degThemeSelector @select="onThemeSelect"/>
 		</div>
       </nav>
       <div class="test-page-content">
@@ -66,8 +72,7 @@ h3 {
 		background: rgba(12, 12, 71, 0.791);
 		background-size: cover;
 		background-position: center;
-		height: 100vh;
-		width: 15%;
+
 
 		.test-page-links {
 			padding: 1rem;

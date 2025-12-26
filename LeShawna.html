@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>German-Romanian Flashcards</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #e6f7e6;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      #app {
+        width: 100%;
+        max-width: 400px;
+        background: #d9f7d9;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        padding: 20px;
+      }
+
+      header {
+        background: #6a0dad;
+        color: white;
+        padding: 10px;
+        border-radius: 8px 8px 0 0;
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 1.5rem;
+      }
+
+      .controls {
+        margin: 15px 0;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 1rem;
+        background: #6a0dad;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #4a096b;
+      }
+
+      #flashcard {
+        background: #fff;
+        border: 2px solid #6a0dad;
+        border-radius: 5px;
+        padding: 15px;
+        margin: 15px 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      #flashcard .word {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #4a096b;
+        margin-bottom: 10px;
+      }
+
+      #flashcard .translation {
+        font-size: 1rem;
+        color: #2a2a2a;
+        visibility: hidden; /* Hidden by default */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h1>German-Romanian Flashcards</h1>
+      </header>
+
+      <main>
+        <div class="controls">
+          <button id="toggleDirection">Switch to Romanian → German</button>
+        </div>
+        <div id="flashcard">
+          <div class="word"></div>
+          <div class="translation"></div>
+        </div>
+        <div class="actions">
+          <button id="revealTranslation">Reveal Translation</button>
+          <button id="nextCard">Next Card</button>
+        </div>
+      </main>
+    </div>
+    <script>
+      const words = [
+        { german: 'es ist vorbei', romanian: 's-a terminat' },
+        { german: 'zumindest', romanian: 'cel puțin, măcar' },
+        { german: 'der Stern', romanian: 'steaua' },
+        { german: 'die Heimat', romanian: 'locul de naștere' },
+        { german: 'abtreten', romanian: 'a ceda' },
+        { german: 'gelingen (ist gelungen)', romanian: 'a reuși' },
+        { german: 'Das Experiment ist mir gelungen.', romanian: 'Experimentul mi-a reușit.' },
+        { german: 'andererseits', romanian: 'pe de o altă parte' },
+        { german: 'aufgeben', romanian: 'a renunța' },
+        { german: 'ein für alle Mal', romanian: 'o dată pentru totdeauna' },
+        { german: 'loswerden', romanian: 'a scăpa' },
+        { german: 'herumsprechen', romanian: 'a vorbi aiurea' },
+        { german: 'um ... herum', romanian: 'în jurul' },
+        { german: 'geschehen', romanian: 'a se întâmpla' },
+        { german: 'nicht wahr?', romanian: 'nu-i adevărat?' },
+        { german: 'zur Sache kommen', romanian: 'a trece la subiect' },
+        { german: 'Wohlergehen', romanian: 'bunăstare' },
+        { german: 'bedauernswert', romanian: 'amărât, regretabil, jalnic' },
+        { german: 'ich habe meine Meinung geändert', romanian: 'm-am răzgândit' },
+        { german: 'sich leisten', romanian: 'a-și permite' },
+      ]
+
+      let currentDirection = 'de-to-ro' // Default: German to Romanian
+      let currentIndex = 0
+
+      const directionButton = document.getElementById('toggleDirection')
+      const flashcard = document.getElementById('flashcard')
+      const nextCardButton = document.getElementById('nextCard')
+      const revealButton = document.getElementById('revealTranslation')
+
+      // Toggles translation direction
+      directionButton.addEventListener('click', () => {
+        currentDirection = currentDirection === 'de-to-ro' ? 'ro-to-de' : 'de-to-ro'
+        updateFlashcard()
+        updateDirectionButton()
+      })
+
+      // Show the next word
+      nextCardButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % words.length
+        updateFlashcard()
+        hideTranslation()
+      })
+
+      // Reveal the translation
+      revealButton.addEventListener('click', () => {
+        flashcard.querySelector('.translation').style.visibility = 'visible'
+      })
+
+      // Updates the flashcard content
+      function updateFlashcard() {
+        const wordPair = words[currentIndex]
+        const word = flashcard.querySelector('.word')
+        const translation = flashcard.querySelector('.translation')
+
+        if (currentDirection === 'de-to-ro') {
+          word.textContent = wordPair.german
+          translation.textContent = wordPair.romanian
+        } else {
+          word.textContent = wordPair.romanian
+          translation.textContent = wordPair.german
+        }
+
+        hideTranslation()
+      }
+
+      // Updates the direction toggle button text
+      function updateDirectionButton() {
+        directionButton.textContent =
+          currentDirection === 'de-to-ro'
+            ? 'Switch to Romanian → German'
+            : 'Switch to German → Romanian'
+      }
+
+      // Hides the translation
+      function hideTranslation() {
+        flashcard.querySelector('.translation').style.visibility = 'hidden'
+      }
+
+      // Initialize the app
+      updateFlashcard()
+      updateDirectionButton()
+    </script>
+  </body>
+</html>
