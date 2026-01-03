@@ -1,35 +1,34 @@
 @import 'constants.scss';
 
 @mixin basic-box {
-    color: $contrast;
-    background-color: $main;
-    border: 0.5px solid $contrast;
-    border-radius: $radius;
+  color: $contrast-inside;
+  background: linear-gradient(to right, $main, $main-30); /* The linear gradient background */
+  -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
+  border: 0.5px solid $contrast-inside;
+  border-radius: $radius;
 }
 
 @mixin opaque-box {
-    @include basic-box;
-    background-color: $mainOpaque;
+  @include basic-box;
+  background-color: $main;
 }
 
 @mixin border-top-radius {
-    border-top-left-radius: $radius;
-    border-top-right-radius: $radius;
+  border-top-left-radius: $radius;
+  border-top-right-radius: $radius;
 }
 
 @mixin border-bottom-radius {
-    border-bottom-left-radius: $radius;
-    border-bottom-right-radius: $radius;
+  border-bottom-left-radius: $radius;
+  border-bottom-right-radius: $radius;
 }
 
 @mixin list-box-border {
-    &:first-child {
-        @include border-top-radius;
-    }
+  &:first-child {
+    @include border-top-radius;
+  }
 
-    &:last-child {
-        @include border-bottom-radius;
-    }
+  &:last-child {
+    @include border-bottom-radius;
+  }
 }
-
-

@@ -1,111 +1,110 @@
-export const MAIN = "#3a6de4";
-export const CONTRAST = "#fffdc8";
-export const DISABLED_TEXT = "#303030";
+export const MAIN = '#3a6de4'
+export const CONTRAST = '#fffdc8'
+export const DISABLED_TEXT = '#303030'
 
-const MAIN_ARTIFICER = "#3a6de4";
-const BG_ARTIFICER = "rgba(10, 10, 30, 0.9)";
-const CONTRAST_ARTIFICER = "#eaeaea";
-const HIGHLIGHT_ARTIFICER = "#ff79c6";
-const ERROR_ARTIFICER = "#ff6ac1";
-const SUCCESS_ARTIFICER = "#8be9fd";
-const DISABLED_ARTIFICER = "#606060";
+const MAIN_ARTIFICER = '#3a6de4'
+const BG_ARTIFICER = 'rgba(10, 10, 30, 0.9)'
+const CONTRAST_ARTIFICER = '#eaeaea'
+const HIGHLIGHT_ARTIFICER = '#ff79c6'
+const ERROR_ARTIFICER = '#ff6ac1'
+const SUCCESS_ARTIFICER = '#8be9fd'
+const DISABLED_ARTIFICER = '#606060'
 
-const MAIN_BARBARIAN = "#ff5733";
-const BG_BARBARIAN = "rgba(60, 10, 0, 0.58)";
-const CONTRAST_BARBARIAN = "#fff0e6";
-const HIGHLIGHT_BARBARIAN = "#ffc300ff";
-const ERROR_BARBARIAN = "#ff3333";
-const SUCCESS_BARBARIAN = "#33ff33";
-const DISABLED_BARBARIAN = "#606060";
+const MAIN_BARBARIAN = '#ff5733'
+const BG_BARBARIAN = 'rgba(60, 10, 0, 0.58)'
+const CONTRAST_BARBARIAN = '#fff0e6'
+const HIGHLIGHT_BARBARIAN = '#ffc300ff'
+const ERROR_BARBARIAN = '#ff3333'
+const SUCCESS_BARBARIAN = '#33ff33'
+const DISABLED_BARBARIAN = '#606060'
 
-const MAIN_BARD = "#7e43ff";
-const BG_BARD = "rgba(56, 0, 116, 0.58)";
-const CONSTRAST_BARD = "#f2ff00";
-const HIGHLIGHT_BARD = "#ff9900ff";
-const ERROR_BARD = "#ff0000";
-const SUCCESS_BARD = "#00ff00";
-const DISABLED_BARD = "#606060";
+const MAIN_BARD = '#6f2dff91'
+const BG_BARD = 'rgba(56, 0, 116, 0.58)'
+const CONSTRAST_BARD = '#f2ff00'
+const HIGHLIGHT_BARD = '#ff9900ff'
+const ERROR_BARD = '#ff0000'
+const SUCCESS_BARD = '#00ff00'
+const DISABLED_BARD = '#606060'
 
-const MAIN_CLERIC = "#ffbb33";
-const BG_CLERIC = "rgba(60, 30, 0, 0.58)";
-const CONTRAST_CLERIC = "#ffffe6";
-const HIGHLIGHT_CLERIC = "#33ffccff";
-const ERROR_CLERIC = "#ff4444";
-const SUCCESS_CLERIC = "#44ff44";
-const DISABLED_CLERIC = "#606060";
+const MAIN_CLERIC = '#ffbb33'
+const BG_CLERIC = 'rgba(60, 30, 0, 0.58)'
+const CONTRAST_CLERIC = '#ffffe6'
+const HIGHLIGHT_CLERIC = '#33ffccff'
+const ERROR_CLERIC = '#ff4444'
+const SUCCESS_CLERIC = '#44ff44'
+const DISABLED_CLERIC = '#606060'
 
-const MAIN_DRUID = "#43ff7eff";
-const BG_DRUID = "rgba(0, 56, 36, 0.58)";
-const CONTRAST_DRUID = "#f0ffea";
-const HIGHLIGHT_DRUID = "#00ffaaff";
-const ERROR_DRUID = "#ff4444";
-const SUCCESS_DRUID = "#44ff44";
-const DISABLED_DRUID = "#606060";
+const MAIN_DRUID = '#43ff7eff'
+const BG_DRUID = 'rgba(0, 56, 36, 0.58)'
+const CONTRAST_DRUID = '#f0ffea'
+const HIGHLIGHT_DRUID = '#00ffaaff'
+const ERROR_DRUID = '#ff4444'
+const SUCCESS_DRUID = '#44ff44'
+const DISABLED_DRUID = '#606060'
 
-const MAIN_FIGHTER = "#ff3333";
-const BG_FIGHTER = "rgba(60, 0, 0, 0.58)";
-const CONTRAST_FIGHTER = "#ffe6e6";
-const HIGHLIGHT_FIGHTER = "#ffff00ff";
-const ERROR_FIGHTER = "#ff5555";
-const SUCCESS_FIGHTER = "#55ff55";
-const DISABLED_FIGHTER = "#606060";
+const MAIN_FIGHTER = '#ff3333'
+const BG_FIGHTER = 'rgba(60, 0, 0, 0.58)'
+const CONTRAST_FIGHTER = '#ffe6e6'
+const HIGHLIGHT_FIGHTER = '#ffff00ff'
+const ERROR_FIGHTER = '#ff5555'
+const SUCCESS_FIGHTER = '#55ff55'
+const DISABLED_FIGHTER = '#606060'
 
-const MAIN_MONK = "#33ffdd";
-const BG_MONK = "rgba(0, 60, 56, 0.58)";
-const CONTRAST_MONK = "#e6fffb";
-const HIGHLIGHT_MONK = "#ff33ffff";
-const ERROR_MONK = "#ff5555";
-const SUCCESS_MONK = "#55ff55";
-const DISABLED_MONK = "#606060";
+const MAIN_MONK = '#33ffdd'
+const BG_MONK = 'rgba(0, 60, 56, 0.58)'
+const CONTRAST_MONK = '#e6fffb'
+const HIGHLIGHT_MONK = '#ff33ffff'
+const ERROR_MONK = '#ff5555'
+const SUCCESS_MONK = '#55ff55'
+const DISABLED_MONK = '#606060'
 
-const MAIN_PALADIN = "#ff33aa";
-const BG_PALADIN = "rgba(60, 0, 30, 0.58)";
-const CONTRAST_PALADIN = "#ffe6f2";
-const HIGHLIGHT_PALADIN = "#33ffffff";
-const ERROR_PALADIN = "#ff5555";
-const SUCCESS_PALADIN = "#55ff55";
-const DISABLED_PALADIN = "#606060";
+const MAIN_PALADIN = '#ff33aa'
+const BG_PALADIN = 'rgba(60, 0, 30, 0.58)'
+const CONTRAST_PALADIN = '#ffe6f2'
+const HIGHLIGHT_PALADIN = '#33ffffff'
+const ERROR_PALADIN = '#ff5555'
+const SUCCESS_PALADIN = '#55ff55'
+const DISABLED_PALADIN = '#606060'
 
-const MAIN_RANGER = "#33ff57";
-const BG_RANGER = "rgba(0, 60, 30, 0.58)";
-const CONTRAST_RANGER = "#e6ffe6";
-const HIGHLIGHT_RANGER = "#ffcc33ff";
-const ERROR_RANGER = "#ff5555";
-const SUCCESS_RANGER = "#55ff55";
-const DISABLED_RANGER = "#606060";
+const MAIN_RANGER = '#33ff57'
+const BG_RANGER = 'rgba(0, 60, 30, 0.58)'
+const CONTRAST_RANGER = '#e6ffe6'
+const HIGHLIGHT_RANGER = '#ffcc33ff'
+const ERROR_RANGER = '#ff5555'
+const SUCCESS_RANGER = '#55ff55'
+const DISABLED_RANGER = '#606060'
 
-const MAIN_ROGUE = "#272727";
-const BG_ROGUE = "rgba(0, 0, 0, 0.85)";
-const CONTRAST_ROGUE = "#d6d6d6";
-const HIGHLIGHT_ROGUE = "#ff2e2eff";
-const ERROR_ROGUE = "#ff5555";
-const SUCCESS_ROGUE = "#50fa7b";
-const DISABLED_ROGUE = "#606060";
+const MAIN_ROGUE = '#272727'
+const BG_ROGUE = 'rgba(0, 0, 0, 0.85)'
+const CONTRAST_ROGUE = '#d6d6d6'
+const HIGHLIGHT_ROGUE = '#ff2e2eff'
+const ERROR_ROGUE = '#ff5555'
+const SUCCESS_ROGUE = '#50fa7b'
+const DISABLED_ROGUE = '#606060'
 
-const MAIN_SORCERER = "#ff33dd";
-const BG_SORCERER = "rgba(60, 0, 30, 0.58)";
-const CONTRAST_SORCERER = "#ffe6f2";
-const HIGHLIGHT_SORCERER = "#33ffffff";
-const ERROR_SORCERER = "#ff5555";
-const SUCCESS_SORCERER = "#55ff55";
-const DISABLED_SORCERER = "#606060";
+const MAIN_SORCERER = '#ff33dd'
+const BG_SORCERER = 'rgba(60, 0, 30, 0.58)'
+const CONTRAST_SORCERER = '#ffe6f2'
+const HIGHLIGHT_SORCERER = '#33ffffff'
+const ERROR_SORCERER = '#ff5555'
+const SUCCESS_SORCERER = '#55ff55'
+const DISABLED_SORCERER = '#606060'
 
-const MAIN_WARLOCK = "#aa33ff";
-const BG_WARLOCK = "rgba(30, 0, 60, 0.58)";
-const CONTRAST_WARLOCK = "#f2e6ff";
-const HIGHLIGHT_WARLOCK = "#33ffffff";
-const ERROR_WARLOCK = "#ff5555";
-const SUCCESS_WARLOCK = "#55ff55";
-const DISABLED_WARLOCK = "#606060";
+const MAIN_WARLOCK = '#aa33ff'
+const BG_WARLOCK = 'rgba(30, 0, 60, 0.58)'
+const CONTRAST_WARLOCK = '#f2e6ff'
+const HIGHLIGHT_WARLOCK = '#33ffffff'
+const ERROR_WARLOCK = '#ff5555'
+const SUCCESS_WARLOCK = '#55ff55'
+const DISABLED_WARLOCK = '#606060'
 
-const MAIN_WIZARD = "#243afdff";
-const BG_WIZARD = "rgba(10, 10, 30, 0.9)";
-const CONTRAST_WIZARD = "#eaeaea";
-const HIGHLIGHT_WIZARD = "#ff79c6";
-const ERROR_WIZARD = "#ff6ac1";
-const SUCCESS_WIZARD = "#8be9fd";
-const DISABLED_WIZARD = "#606060";
-
+const MAIN_WIZARD = '#243afdff'
+const BG_WIZARD = 'rgba(10, 10, 30, 0.9)'
+const CONTRAST_WIZARD = '#eaeaea'
+const HIGHLIGHT_WIZARD = '#ff79c6'
+const ERROR_WIZARD = '#ff6ac1'
+const SUCCESS_WIZARD = '#8be9fd'
+const DISABLED_WIZARD = '#606060'
 
 export const THEME_ARTIFICER = {
   MAIN: MAIN_ARTIFICER,
@@ -114,8 +113,8 @@ export const THEME_ARTIFICER = {
   HIGHLIGHT: HIGHLIGHT_ARTIFICER,
   ERROR: ERROR_ARTIFICER,
   SUCCESS: SUCCESS_ARTIFICER,
-  DISABLED: DISABLED_ARTIFICER
-};
+  DISABLED: DISABLED_ARTIFICER,
+}
 
 export const THEME_BARBARIAN = {
   MAIN: MAIN_BARBARIAN,
@@ -124,8 +123,8 @@ export const THEME_BARBARIAN = {
   HIGHLIGHT: HIGHLIGHT_BARBARIAN,
   ERROR: ERROR_BARBARIAN,
   SUCCESS: SUCCESS_BARBARIAN,
-  DISABLED: DISABLED_BARBARIAN
-};
+  DISABLED: DISABLED_BARBARIAN,
+}
 
 export const THEME_BARD = {
   MAIN: MAIN_BARD,
@@ -134,8 +133,8 @@ export const THEME_BARD = {
   HIGHLIGHT: HIGHLIGHT_BARD,
   ERROR: ERROR_BARD,
   SUCCESS: SUCCESS_BARD,
-  DISABLED: DISABLED_BARD
-};
+  DISABLED: DISABLED_BARD,
+}
 
 export const THEME_CLERIC = {
   MAIN: MAIN_CLERIC,
@@ -144,8 +143,8 @@ export const THEME_CLERIC = {
   HIGHLIGHT: HIGHLIGHT_CLERIC,
   ERROR: ERROR_CLERIC,
   SUCCESS: SUCCESS_CLERIC,
-  DISABLED: DISABLED_CLERIC
-};
+  DISABLED: DISABLED_CLERIC,
+}
 
 export const THEME_DRUID = {
   MAIN: MAIN_DRUID,
@@ -154,8 +153,8 @@ export const THEME_DRUID = {
   HIGHLIGHT: HIGHLIGHT_DRUID,
   ERROR: ERROR_DRUID,
   SUCCESS: SUCCESS_DRUID,
-  DISABLED: DISABLED_DRUID
-};
+  DISABLED: DISABLED_DRUID,
+}
 
 export const THEME_FIGHTER = {
   MAIN: MAIN_FIGHTER,
@@ -164,8 +163,8 @@ export const THEME_FIGHTER = {
   HIGHLIGHT: HIGHLIGHT_FIGHTER,
   ERROR: ERROR_FIGHTER,
   SUCCESS: SUCCESS_FIGHTER,
-  DISABLED: DISABLED_FIGHTER
-};
+  DISABLED: DISABLED_FIGHTER,
+}
 
 export const THEME_MONK = {
   MAIN: MAIN_MONK,
@@ -174,8 +173,8 @@ export const THEME_MONK = {
   HIGHLIGHT: HIGHLIGHT_MONK,
   ERROR: ERROR_MONK,
   SUCCESS: SUCCESS_MONK,
-  DISABLED: DISABLED_MONK
-};
+  DISABLED: DISABLED_MONK,
+}
 
 export const THEME_PALADIN = {
   MAIN: MAIN_PALADIN,
@@ -184,8 +183,8 @@ export const THEME_PALADIN = {
   HIGHLIGHT: HIGHLIGHT_PALADIN,
   ERROR: ERROR_PALADIN,
   SUCCESS: SUCCESS_PALADIN,
-  DISABLED: DISABLED_PALADIN
-};
+  DISABLED: DISABLED_PALADIN,
+}
 
 export const THEME_RANGER = {
   MAIN: MAIN_RANGER,
@@ -194,8 +193,8 @@ export const THEME_RANGER = {
   HIGHLIGHT: HIGHLIGHT_RANGER,
   ERROR: ERROR_RANGER,
   SUCCESS: SUCCESS_RANGER,
-  DISABLED: DISABLED_RANGER
-};
+  DISABLED: DISABLED_RANGER,
+}
 
 export const THEME_ROGUE = {
   MAIN: MAIN_ROGUE,
@@ -204,8 +203,8 @@ export const THEME_ROGUE = {
   HIGHLIGHT: HIGHLIGHT_ROGUE,
   ERROR: ERROR_ROGUE,
   SUCCESS: SUCCESS_ROGUE,
-  DISABLED: DISABLED_ROGUE
-};
+  DISABLED: DISABLED_ROGUE,
+}
 
 export const THEME_SORCERER = {
   MAIN: MAIN_SORCERER,
@@ -214,8 +213,8 @@ export const THEME_SORCERER = {
   HIGHLIGHT: HIGHLIGHT_SORCERER,
   ERROR: ERROR_SORCERER,
   SUCCESS: SUCCESS_SORCERER,
-  DISABLED: DISABLED_SORCERER
-};
+  DISABLED: DISABLED_SORCERER,
+}
 
 export const THEME_WARLOCK = {
   MAIN: MAIN_WARLOCK,
@@ -224,8 +223,8 @@ export const THEME_WARLOCK = {
   HIGHLIGHT: HIGHLIGHT_WARLOCK,
   ERROR: ERROR_WARLOCK,
   SUCCESS: SUCCESS_WARLOCK,
-  DISABLED: DISABLED_WARLOCK
-};
+  DISABLED: DISABLED_WARLOCK,
+}
 
 export const THEME_WIZARD = {
   MAIN: MAIN_WIZARD,
@@ -234,8 +233,8 @@ export const THEME_WIZARD = {
   HIGHLIGHT: HIGHLIGHT_WIZARD,
   ERROR: ERROR_WIZARD,
   SUCCESS: SUCCESS_WIZARD,
-  DISABLED: DISABLED_WIZARD
-};
+  DISABLED: DISABLED_WIZARD,
+}
 
 export const THEMES = {
   ARTIFICER: THEME_ARTIFICER,
@@ -251,6 +250,6 @@ export const THEMES = {
   SORCERER: THEME_SORCERER,
   WARLOCK: THEME_WARLOCK,
   WIZARD: THEME_WIZARD,
-};
+}
 
-export default THEMES;
+export default THEMES

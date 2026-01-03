@@ -1,19 +1,20 @@
-$main2: #9370DB;
+$main2: #9370db;
 //$contrast: #FFD700;
 $main: var(--main);
 $main-10: var(--main-10);
 $main-20: var(--main-20);
+$main-30: var(--main-30);
+$main-40: var(--main-40);
 $main-50: var(--main-50);
 $main-110: var(--main-110);
 $main-120: var(--main-120);
 $main-150: var(--main-150);
 $bg: var(--bg);
-$contrast: var(--contrast);
-$highlight: var(--highlight); ;
-$radius: 0rem;
+$contrast-inside: var(--contrast-inside);
+$contrast-outside: var(--contrast-outside);
+$highlight: var(--highlight);
+$radius: 2px;
 $disabledText: #606060;
-
-
 
 $mainHoover: var(--main-20);
 $mainActive: var(--main-120);

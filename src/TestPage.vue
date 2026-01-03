@@ -64,7 +64,7 @@ h3 {
 	height: 100vh;
 	width: 100%;
 	display: flex;
-	background: rgb(100, 105, 192);
+	background: rgba(39, 40, 54, 0.238);
 	background-size: cover;
 	background-position: center;
 
@@ -72,6 +72,7 @@ h3 {
 		background: rgba(12, 12, 71, 0.791);
 		background-size: cover;
 		background-position: center;
+    width: 35%;
 
 
 		.test-page-links {

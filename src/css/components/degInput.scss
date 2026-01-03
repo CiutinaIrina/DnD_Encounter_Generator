@@ -1,17 +1,39 @@
 @import '../mixins.scss';
+@import '../constants.scss';
 
 .deg-input {
   .deg-input-label {
-    color: $contrast;
+    color: $contrast-outside;
     margin-right: 0.25rem;
   }
 
   .deg-input-field {
     @include basic-box;
-    box-shadow: inset 0 0 0 0.5px rgb(233, 218, 119);
+    box-shadow: inset 0 0 0 0.75px $contrast-outside;
     outline: none;
     border: none;
     height: 1.5rem;
+    width: 1.75rem;
     padding: 0.25rem;
+    text-align-last: center;
+    transition: background-color 3s;
+
+    &:focus {
+      background: linear-gradient(to right, $main-30, $main);
+    }
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    background: linear-gradient(to right, $main, $main-30);
+  }
+
+  50% {
+    background: linear-gradient(to right, $main-30, $main);
+  }
+
+  100% {
+    background: linear-gradient(to right, $main, $main-30);
   }
 }

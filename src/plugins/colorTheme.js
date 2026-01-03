@@ -14,7 +14,8 @@ export function setColorTheme() {
   const root = document.documentElement
 
   root.style.setProperty('--main', currentTheme.MAIN)
-  root.style.setProperty('--contrast', currentTheme.CONTRAST)
+  root.style.setProperty('--contrast-inside', currentTheme.CONTRAST)
+  root.style.setProperty('--contrast-outside', getDarkenedColor(currentTheme.CONTRAST, 20))
   root.style.setProperty('--bg', currentTheme.BG)
   root.style.setProperty('--main-5', getBrightenedColor(currentTheme.MAIN, 5))
   root.style.setProperty('--main-10', getBrightenedColor(currentTheme.MAIN, 10))
@@ -38,6 +39,8 @@ export function setColorTheme() {
 
 function getBrightenedColor(color, percent) {
   const hex = color.replace('#', '');
+  const transparency = hex.length === 8;
+
 
   const r = parseInt(hex.substring(0, 2), 16);
   const g = parseInt(hex.substring(2, 4), 16);
@@ -49,11 +52,19 @@ function getBrightenedColor(color, percent) {
   const newG = Math.min(255, Math.floor(g + (255 - g) * percentDecimal));
   const newB = Math.min(255, Math.floor(b + (255 - b) * percentDecimal));
 
+  if (transparency) {
+    const t = parseInt(hex.substring(6, 8), 16);
+    const newT = (t / 255).toFixed(2);
+
+    return `rgba(${newR}, ${newG}, ${newB}, ${newT})`;
+  }
+
   return `#${newR.toString(16).padStart(2, '0')}${newG.toString(16).padStart(2, '0')}${newB.toString(16).padStart(2, '0')}`;
 }
 
 function getDarkenedColor(color, percent) {
   const hex = color.replace('#', '');
+  const transparency = hex.length === 8;
 
   const r = parseInt(hex.substring(0, 2), 16);
   const g = parseInt(hex.substring(2, 4), 16);
@@ -64,6 +75,13 @@ function getDarkenedColor(color, percent) {
   const newR = Math.max(0, Math.floor(r * (1 - percentDecimal)));
   const newG = Math.max(0, Math.floor(g * (1 - percentDecimal)));
   const newB = Math.max(0, Math.floor(b * (1 - percentDecimal)));
+
+  if (transparency) {
+    const t = parseInt(hex.substring(6, 8), 16);
+    const newT = (t / 255).toFixed(2);
+
+    return `rgba(${newR}, ${newG}, ${newB}, ${newT})`;
+  }
 
   return `#${newR.toString(16).padStart(2, '0')}${newG.toString(16).padStart(2, '0')}${newB.toString(16).padStart(2, '0')}`;
 }
