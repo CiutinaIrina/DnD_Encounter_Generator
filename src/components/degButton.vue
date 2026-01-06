@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 import degIcon from '../components/degIcon.vue'
+import { getCurrentTheme } from '@/plugins/colorTheme.js'
 
 const props = defineProps({
 	text: {
@@ -22,9 +23,10 @@ const componentProps = computed(() => {
 })
 
 const iconColor = computed(() => {
-  if (props.type === 'affirmative') return 'green';
-  if (props.type === 'negative') return 'red';
-  return 'inherit';
+  if (props.type === 'affirmative') return getCurrentTheme().SUCCESS;
+  if (props.type === 'negative') return getCurrentTheme().ERROR;
+  if (props.type === 'disabled') return getCurrentTheme().DISABLED_CONTRAST;
+  return getCurrentTheme().CONTRAST;
 });
 
 </script>
@@ -32,7 +34,7 @@ const iconColor = computed(() => {
 <template>
   <button class="deg-button">
       {{ componentProps.text }}
-      <deg-icon v-if="componentProps.icon" :name="componentProps.icon" />
+      <deg-icon v-if="componentProps.icon" :name="componentProps.icon" :color="iconColor" />
   </button>
 </template>
 

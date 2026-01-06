@@ -5,9 +5,9 @@ const savedTheme = localStorage.getItem("theme");
 let currentTheme = savedTheme ? JSON.parse(savedTheme) : THEMES.BARD
 
 export function changeColorTheme(theme) {
-  currentTheme = theme
+  currentTheme = theme;
 
-  setColorTheme()
+  setColorTheme();
 }
 
 export function setColorTheme() {
@@ -37,7 +37,10 @@ export function setColorTheme() {
   localStorage.setItem("theme", JSON.stringify(currentTheme));
 }
 
-function getBrightenedColor(color, percent) {
+export function getCurrentTheme() {
+  return currentTheme;
+}
+export function getBrightenedColor(color, percent) {
   const hex = color.replace('#', '');
   const transparency = hex.length === 8;
 
@@ -61,8 +64,7 @@ function getBrightenedColor(color, percent) {
 
   return `#${newR.toString(16).padStart(2, '0')}${newG.toString(16).padStart(2, '0')}${newB.toString(16).padStart(2, '0')}`;
 }
-
-function getDarkenedColor(color, percent) {
+export function getDarkenedColor(color, percent) {
   const hex = color.replace('#', '');
   const transparency = hex.length === 8;
 

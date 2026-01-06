@@ -100,77 +100,77 @@ const partyXpPerDay = computed(() => {
 
 <template>
   <div class="deg-title-screen">
-    <div class="corner top left"></div>
-    <div class="corner top right"></div>
-    <div class="corner bottom left"></div>
-    <div class="corner bottom right"></div>
-    <div class="deg-title-screen-column-1">
-      <hr>
-      <div class="deg-title-screen-party-xp">
-        <div class="deg-title-screen-party-xp-column-1">
-          <deg-input
-            v-model="partySize"
-            label="Party Size :"
-            @update:model-value="updatePartySize"
-          />
-          <deg-input
-            v-model="partyLevel"
-            label="Party Level :"
-            @update:model-value="updatePartyLevel"
-          />
-          <deg-dropdown-menu
-            v-model="partySkill"
-            label="Party Skill :"
-            placeholder="Select Skill"
-            :list-items="skillLevelList"
-            @update:model-value="updatePartySkill"
-          />
+    <div class="deg-title-screen-row-1">
+      <div class="deg-title-screen-column-1">
+        <hr>
+        <div class="deg-title-screen-party-xp">
+          <div class="deg-title-screen-party-xp-column-1">
+            <deg-input
+              v-model="partySize"
+              label="Party Size :"
+              @update:model-value="updatePartySize"
+            />
+            <deg-input
+              v-model="partyLevel"
+              label="Party Level :"
+              @update:model-value="updatePartyLevel"
+            />
+            <deg-dropdown-menu
+              v-model="partySkill"
+              label="Party Skill :"
+              placeholder="Select Skill"
+              :list-items="skillLevelList"
+              @update:model-value="updatePartySkill"
+            />
+          </div>
+          <div class="deg-title-screen-party-xp-column-2">
+            <p>Daily : {{ partyXpPerDay }}</p>
+            <p>Trivial : {{ XP.XP_PER_LEVEL[partyLevel].trivial * partySize }}</p>
+            <p>Easy : {{ XP.XP_PER_LEVEL[partyLevel].easy * partySize }}</p>
+            <p>Medium : {{ XP.XP_PER_LEVEL[partyLevel].medium * partySize }}</p>
+            <p>Hard : {{ XP.XP_PER_LEVEL[partyLevel].hard * partySize }}</p>
+            <p>Deadly : {{ XP.XP_PER_LEVEL[partyLevel].deadly * partySize }}</p>
+          </div>
         </div>
-        <div class="deg-title-screen-party-xp-column-2">
-          <p>Daily : {{ partyXpPerDay }}</p>
-          <p>Trivial : {{ XP.XP_PER_LEVEL[partyLevel].trivial * partySize }}</p>
-          <p>Easy : {{ XP.XP_PER_LEVEL[partyLevel].easy * partySize }}</p>
-          <p>Medium : {{ XP.XP_PER_LEVEL[partyLevel].medium * partySize }}</p>
-          <p>Hard : {{ XP.XP_PER_LEVEL[partyLevel].hard * partySize }}</p>
-          <p>Deadly : {{ XP.XP_PER_LEVEL[partyLevel].deadly * partySize }}</p>
-        </div>
+        <hr>
+        <deg-dropdown-menu
+          v-model="partySkill"
+          label="Encounter Type WIP :"
+          placeholder="Select Skill"
+          :list-items="skillLevelList"
+          @update:model-value="updatePartySkill"
+        />
+        <deg-dropdown-menu
+          v-model="partySkill"
+          label="Encounter Difficulty WIP:"
+          placeholder="Select Skill"
+          :list-items="skillLevelList"
+          @update:model-value="updatePartySkill"
+        />
+        <deg-button text="Generate TEST encounter"></deg-button>
+        <deg-box
+          :height="15"
+          :width="30"
+        >
+        </deg-box>
       </div>
-      <hr>
-      <deg-dropdown-menu
-        v-model="partySkill"
-        label="Encounter Type WIP :"
-        placeholder="Select Skill"
-        :list-items="skillLevelList"
-        @update:model-value="updatePartySkill"
-      />
-      <deg-dropdown-menu
-        v-model="partySkill"
-        label="Encounter Difficulty WIP:"
-        placeholder="Select Skill"
-        :list-items="skillLevelList"
-        @update:model-value="updatePartySkill"
-      />
-      <deg-button text="Generate TEST encounter"></deg-button>
-      <deg-box
-        :height="15"
-        :width="40"
-      >
-      </deg-box>
-      <hr>
+      <div class="deg-title-screen-column-2">
+        <hr>
+        <deg-list
+          :rows="monsters"
+          :columns="columns"
+          :columns-styling="columnsStyling"
+          :has-pagination="true"
+          :numbers-per-page="5"
+        />
+        <br>
+        <deg-compendium />
+      </div>
+    </div>
+    <div class="deg-title-screen-row-2">
       <deg-theme-selector @select="onSelectThemeSelector" />
     </div>
-    <div class="deg-title-screen-column-2">
-      <hr>
-      <deg-list
-        :rows="list1"
-        :columns="columns"
-        :columns-styling="columnsStyling"
-        :has-pagination="true"
-        :numbers-per-page="4"
-      />
-      <br>
-      <deg-compendium />
-    </div>
+
   </div>
 </template>
 

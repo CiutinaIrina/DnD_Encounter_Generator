@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 import ICONS from '@/common/icons.js'
-import CONSTANTS from '@/common/themes.js'
+import { getCurrentTheme, getDarkenedColor } from '@/plugins/colorTheme.js'
 
 const props = defineProps({
   name: {
@@ -10,7 +10,7 @@ const props = defineProps({
   },
   color: {
     type: String,
-    default: CONSTANTS.CONTRAST,
+    default: getDarkenedColor(getCurrentTheme().CONTRAST, 20),
   },
   disabled: {
     type: Boolean,
@@ -19,7 +19,7 @@ const props = defineProps({
 })
 
 const iconColor = computed(() => {
-  return props.disabled ? CONSTANTS.DISABLED_CONTRAST : props.color
+  return props.disabled ? getCurrentTheme().DISABLED_CONTRAST : props.color
 })
 </script>
 

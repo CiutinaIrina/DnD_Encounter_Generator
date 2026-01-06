@@ -13,7 +13,7 @@ const toggleDisabled = () => {
 </script>
 
 <template>
-  <deg-button label="Toggle disabled" @click="toggleDisabled" />
+  <deg-button text="Toggle disabled" @click="toggleDisabled" />
   <br />
   <div v-for="icon in ICONS.ICON_LIST" :key="icon">
     <h3>{{ icon }} icon</h3>

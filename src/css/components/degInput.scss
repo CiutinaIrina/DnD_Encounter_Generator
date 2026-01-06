@@ -16,24 +16,25 @@
     width: 1.75rem;
     padding: 0.25rem;
     text-align-last: center;
-    transition: background-color 3s;
+    transition: all 0.3s ease-in-out;
 
     &:focus {
-      background: linear-gradient(to right, $main-30, $main);
+      animation: border-pulse 3s infinite;
+      outline: none;
     }
   }
 }
 
-@keyframes fadeInOut {
+@keyframes border-pulse {
   0% {
-    background: linear-gradient(to right, $main, $main-30);
+    box-shadow: inset 0 0 0 0.75px $contrast-outside; /* Pulse effect */
   }
 
   50% {
-    background: linear-gradient(to right, $main-30, $main);
+    box-shadow: inset 0 0 0 0.95px $contrast-inside;
   }
 
   100% {
-    background: linear-gradient(to right, $main, $main-30);
+    box-shadow: inset 0 0 0 0.75px $contrast-outside;
   }
 }

@@ -6,38 +6,48 @@
   margin: 2rem;
   height: calc(100vh - 4rem); /* Reduced height to accommodate margins */
   background: $bg;
-  display: flex;
 
-  .deg-title-screen-column-1 {
-    float: left;
-    width: 50%;
-    padding: 2rem;
-    box-sizing: border-box;
-    color: $main;
+  .deg-title-screen-row-1 {
+    height: 95%;
 
-    .deg-title-screen-party-xp {
-      display: flex;
+    .deg-title-screen-column-1 {
+      float: left;
+      width: 50%;
+      padding: 2rem;
+      box-sizing: border-box;
+      color: $main;
+
+      .deg-title-screen-party-xp {
+        display: flex;
 
 
-      .deg-title-screen-party-xp-column-1 {
-        width: 50%;
-      }
-      .deg-title-screen-party-xp-column-2 {
-        width: 50%;
-        justify-content: space-around;
-        p {
-          margin: 0.75rem;
+        .deg-title-screen-party-xp-column-1 {
+          width: 50%;
         }
+        .deg-title-screen-party-xp-column-2 {
+          width: 50%;
+          justify-content: space-around;
+          p {
+            margin: 0.75rem;
+          }
 
+        }
       }
     }
+    .deg-title-screen-column-2 {
+      float: right;
+      width: 50%;
+      padding: 2rem;
+      box-sizing: border-box;
+      color: white;
+    }
   }
-  .deg-title-screen-column-2 {
-    float: right;
-    width: 50%;
-    padding: 2rem;
-    box-sizing: border-box;
-    color: white;
+
+  .deg-title-screen-row-2 {
+    height: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .deg-button, .deg-input, .deg-dropdown-menu, .deg-box {
